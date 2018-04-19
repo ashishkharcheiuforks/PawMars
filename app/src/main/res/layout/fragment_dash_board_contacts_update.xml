@@ -39,7 +39,7 @@
                     app:layout_collapseMode="parallax" />
 
                 <ImageView
-                    android:id="@+id/contact_display_dp_edit"
+                    android:id="@+id/contact_display_dp_camera"
                     style="@style/ConstraintLayoutViews"
                     android:layout_width="60dp"
                     android:layout_height="60dp"

@@ -4,12 +4,8 @@
     android:layout_height="match_parent"
     tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardFragments.DashBoardEventsFragment">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_gravity="center"
-        android:textSize="50sp"
-        android:text="Events"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/dashboard_events_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </FrameLayout>

@@ -28,7 +28,7 @@ class Modal(val context: Context) {
             val contact = Contact()
             contact.name = contacts.getString(contacts.getColumnIndex("name"))
             contact.phoneNumber = contacts.getString(contacts.getColumnIndex("phno"))
-
+            contact.email = contacts.getString(contacts.getColumnIndex("email"))
             contact.contact_id = contacts.getString(contacts.getColumnIndex("contact_id"))
             contact.photo = contacts.getInt(contacts.getColumnIndex("contact_id")) > 0
             println(contacts.getString(contacts.getColumnIndex("name")))

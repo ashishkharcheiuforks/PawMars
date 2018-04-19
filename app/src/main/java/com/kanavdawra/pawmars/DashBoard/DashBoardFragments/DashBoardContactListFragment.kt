@@ -40,8 +40,11 @@ var contactListAdaptor:ContactListAdaptor?=null
     fun notifyDataSetChanged(){
         val dashBoardContactInterface=object :DashBoardContactsInterface{
             override fun notifyDataSetChanged() {
-                contactListAdaptor!!.contactList=Modal(activity!!).contactListToModal()
-                contactListAdaptor!!.notifyDataSetChanged()
+               try {
+                   contactListAdaptor=ContactListAdaptor(activity!!, Modal(activity!!).contactListToModal())
+                   contact_list_recyclerView.adapter=contactListAdaptor
+                } catch (e: Exception) {
+                }
             }
 
         }

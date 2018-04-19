@@ -81,7 +81,8 @@ class DashBoardContactsFragment : Fragment() {
     fun notifyDataSetChanged() {
         val dashBoardContactInterface = object : DashBoardContactsInterface {
             override fun notifyDataSetChanged() {
-                contactsAdapter!!.deSelectAll()
+                contactsAdapter = ContactsAdapter(activity!!, Modal(activity!!).contactsToModal())
+                contacts_recycler_view.adapter = contactsAdapter
 
                 contactsAdapter!!.notifyDataSetChanged()
             }

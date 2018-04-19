@@ -96,7 +96,7 @@ class DashBoardContactListDetailsFragment : Fragment() {
             if (contact_list_details_dp_delete.visibility == View.GONE) {
                 deleteDp()
             } else {
-                //saveImage()
+                saveImage()
             }
         }
 
@@ -225,7 +225,7 @@ class DashBoardContactListDetailsFragment : Fragment() {
 
         try {
             fos = FileOutputStream(mypath)
-            contactListImage!!.compress(Bitmap.CompressFormat.PNG, 100, fos)
+            contactListImage!!.compress(Bitmap.CompressFormat.PNG, 50, fos)
         } catch (e: Exception) {
             e.printStackTrace()
         } finally {
@@ -248,7 +248,8 @@ class DashBoardContactListDetailsFragment : Fragment() {
 
         val mypath = File(directory, "$contactListName.jpg")
 
-        File(mypath.toURI()).delete()
+        val file=File(mypath.toURI())
+        file.canonicalFile.delete()
 
     }
 

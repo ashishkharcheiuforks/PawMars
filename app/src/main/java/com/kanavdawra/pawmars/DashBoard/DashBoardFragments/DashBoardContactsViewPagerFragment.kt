@@ -41,11 +41,18 @@ class DashBoardContactsViewPagerFragment : Fragment() {
         contacts_view_pager_ViewPager.adapter = contactsPagerAdaptor
     }
 
-    fun setInterface(){
-        val dashBoardContactsInterface=object :DashBoardContactsInterface{
+    fun setInterface() {
+        val dashBoardContactsInterface = object : DashBoardContactsInterface {
             override fun notifyDataSetChanged() {
-                contactsPagerAdaptor!!.pages = 2
+                val coursor = DataBase(activity!!).writableDatabase.rawQuery("SELECT * FROM contactList", null)
+                val count = coursor.count
+                if (count <= 0) {
+                    contactsPagerAdaptor!!.pages = 1
+                } else {
+                    contactsPagerAdaptor!!.pages = 2
+                }
                 contactsPagerAdaptor!!.notifyDataSetChanged()
+                coursor.close()
             }
 
         }
@@ -53,10 +60,10 @@ class DashBoardContactsViewPagerFragment : Fragment() {
 
     }
 
-    fun setPagerStrip(){
-        contacts_view_pager_PagerStrip.tabIndicatorColor=ContextCompat.getColor(activity!!,R.color.White)
-        contacts_view_pager_PagerStrip.setBackgroundColor(ContextCompat.getColor(activity!!,R.color.colorPrimary))
-        contacts_view_pager_PagerStrip.setTextColor(ContextCompat.getColor(activity!!,R.color.White))
+    fun setPagerStrip() {
+        contacts_view_pager_PagerStrip.tabIndicatorColor = ContextCompat.getColor(activity!!, R.color.White)
+        contacts_view_pager_PagerStrip.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.colorPrimary))
+        contacts_view_pager_PagerStrip.setTextColor(ContextCompat.getColor(activity!!, R.color.White))
     }
 
     override fun onStart() {

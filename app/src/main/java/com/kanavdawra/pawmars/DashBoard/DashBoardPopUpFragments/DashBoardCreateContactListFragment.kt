@@ -61,37 +61,43 @@ class DashBoardCreateContactListFragment : Fragment() {
     fun toolBarButtons() {
         create_contact_list_save.setOnClickListener {
             var i = 1
+
             if (create_contact_list_name_edit.text.toString() != "") {
+                val coursor = DataBase(activity!!).writableDatabase.rawQuery("SELECT * FROM contactList WHERE name='${create_contact_list_name_edit.text}'", null)
+                if (coursor.count <= 0) {
+                    ////////////////////////////////////////SAVE IN SHARED PREFERENCES/////////////////////////
 
-                ////////////////////////////////////////SAVE IN SHARED PREFERENCES/////////////////////////
+                    val editor = activity!!.getSharedPreferences(create_contact_list_name_edit.text.toString(), 0).edit()
+                    for (data in selectedContacts) {
+                        editor.putString("data$i", data.contact_id)
+                        i++
+                    }
 
-                val editor = activity!!.getSharedPreferences(create_contact_list_name_edit.text.toString(), 0).edit()
-                for (data in selectedContacts) {
-                    editor.putString("data$i", data.contact_id)
-                    i++
+                    editor.putString("name", create_contact_list_name_edit.text.toString())
+
+                    if (contactListImage == null) {
+                        editor.putString("image", "null")
+                    } else {
+                        editor.putString("image", "${mypath.toString()}")
+                        saveImage()
+                    }
+
+                    val values = ContentValues()
+                    values.put("name", create_contact_list_name_edit.text.toString())
+                    DataBase(activity!!).writableDatabase.insert("contactList", null, values)
+
+                    editor.apply()
+
+                    ///////////////////////////////////////////////////END//////////////////////////////////
+
+                    PopUpFragmnent(activity!!).dismiss("CreateContactList")
+                    DashBoardContactsUtility(activity!!).notifyDataSetChanged("DashBoardContactsPager")
+                    DashBoardContactsUtility(activity!!).notifyDataSetChanged("DashBoardContacts")
+                    DashBoardContactsUtility(activity!!).notifyDataSetChanged("DashBoardContactList")
+                }else{
+                    DashBoardUtility().snackBar(activity!!,"Name should be unique",R.color.Blue,R.color.White)
                 }
-
-                editor.putString("name", create_contact_list_name_edit.text.toString())
-
-                if (contactListImage == null) {
-                    editor.putString("image", "null")
-                } else {
-                    editor.putString("image", "${mypath.toString()}")
-                    saveImage()
-                }
-
-                val values = ContentValues()
-                values.put("name", create_contact_list_name_edit.text.toString())
-                DataBase(activity!!).writableDatabase.insert("contactList", null, values)
-
-                editor.apply()
-
-                ///////////////////////////////////////////////////END//////////////////////////////////
-
-                PopUpFragmnent(activity!!).dismiss("CreateContactList")
-                DashBoardContactsUtility(activity!!).notifyDataSetChanged("DashBoardContactsPager")
-                DashBoardContactsUtility(activity!!).notifyDataSetChanged("DashBoardContacts")
-                DashBoardContactsUtility(activity!!).notifyDataSetChanged("DashBoardContactList")
+                coursor.close()
 
             } else {
                 DashBoardUtility().snackBar(activity!!, "Name field cannot be empty!", R.color.Red, R.color.White)
