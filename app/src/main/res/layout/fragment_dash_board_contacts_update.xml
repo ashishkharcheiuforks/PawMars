@@ -1,0 +1,216 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardContactsUpdateFragment">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/contact_display_collapseBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginBottom="32dp"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/contact_display_dp"
+                    android:layout_width="410dp"
+                    android:layout_height="200dp"
+                    android:background="@color/Teal"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax" />
+
+                <ImageView
+                    android:id="@+id/contact_display_dp_edit"
+                    style="@style/ConstraintLayoutViews"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_camera" />
+
+                <ImageView
+                    android:id="@+id/contact_display_delete"
+                    style="@style/ConstraintLayoutViews"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="10dp"
+                    android:src="@mipmap/ic_trash_can"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintVertical_bias=".95" />
+
+                <EditText
+                    android:id="@+id/contact_display_name_edit"
+                    style="@style/ConstraintLayoutViews"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:text="PawMars"
+                    android:textSize="34sp"
+                    android:visibility="gone"
+                    app:layout_constraintHorizontal_bias=".33"
+                    app:layout_constraintVertical_bias=".91" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:contentInsetStart="10dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <ImageView
+                    android:id="@+id/contact_display_back"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="20dp"
+                    android:src="@mipmap/arrow_bold" />
+            </android.support.v7.widget.Toolbar>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp">
+
+                <ImageView
+                    android:id="@+id/contact_display_edit"
+                    style="@style/ConstraintLayoutViews"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/ic_pencil"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintVertical_bias=".5" />
+
+                <ImageView
+                    android:id="@+id/contact_display_save"
+                    style="@style/ConstraintLayoutViews"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:foregroundGravity="top"
+                    android:src="@mipmap/ic_tick"
+                    android:visibility="gone"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintVertical_bias=".5" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill_vertical"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:id="@+id/contact_display_phone_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_phone" />
+
+                <TextView
+                    android:id="@+id/contact_display_phone_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@id/contact_display_phone_image"
+                    android:text="3463456345345345345345345"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/contact_display_phone_number_edit"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@id/contact_display_phone_image"
+                    android:maxLines="1"
+                    android:visibility="gone"
+                    android:text="346345634534534534534"
+                    android:textSize="20dp"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:id="@+id/contact_display_email_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_email" />
+
+                <TextView
+                    android:id="@+id/contact_display_email_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@id/contact_display_email_image"
+                    android:text="xfghdfghdfghfghfghfghfghfghfghfgh"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/contact_display_email_address_edit"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="50dp"
+                    android:visibility="gone"
+                    android:layout_toEndOf="@id/contact_display_email_image"
+                    android:maxLines="1"
+                    android:text="xfghdfghdfghfghfghfghfghfghfghfgh"
+                    android:textSize="15dp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.design.widget.CoordinatorLayout>

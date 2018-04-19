@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "42066303682",
+    "firebase_url": "https://pawmars-3fc14.firebaseio.com",
+    "project_id": "pawmars-3fc14",
+    "storage_bucket": "pawmars-3fc14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42066303682:android:57a2d22961ca265f",
+        "android_client_info": {
+          "package_name": "com.kanavdawra.pawmars"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42066303682-n6099fq5ebt0rlqcpa9kpf449nv2dmmh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kanavdawra.pawmars",
+            "certificate_hash": "6bec9c4b449b36b24f3957b1b3b3d26d425a17b8"
+          }
+        },
+        {
+          "client_id": "42066303682-0q2qfiqhqnqfd27110o3fi6rgvc701ut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFsfoXpMRf3cfO2y8u7Hp99xCz865pnr0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42066303682-0q2qfiqhqnqfd27110o3fi6rgvc701ut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/DashBoardActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/DashBoard_ToolBar_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/DashBoard_ToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:contentInsetStart="0dp">
+
+                <RelativeLayout
+                    android:id="@+id/DashBoard_ToolBar_add_cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/DashBoard_ToolBar_add"
+                        android:layout_width="50dp"
+                        android:layout_height="50sp"
+                        android:layout_alignParentTop="true"
+                        android:layout_toStartOf="@+id/DashBoard_ToolBar_cancel"
+                        android:background="@color/colorPrimary"
+                        android:src="@mipmap/ic_plus" />
+
+                    <ImageView
+
+                        android:id="@+id/DashBoard_ToolBar_cancel"
+                        android:layout_width="50dp"
+                        android:layout_height="50sp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:background="@color/colorPrimary"
+                        android:src="@mipmap/ic_cross" />
+                </RelativeLayout>
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/DashBoardFragmentFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="55dp"
+            android:background="@color/White" />
+
+        <FrameLayout
+            android:id="@+id/popup_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/DashBoardLoaderLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".DashBoardActivity">
+
+
+            <View
+                android:id="@+id/DashBoardLoaderView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/TranslucentGrey"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <android.support.constraint.ConstraintLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/Purple"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.tuyenmonkey.mkloader.MKLoader
+                    android:id="@+id/DashBoardLoader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:mk_color="@color/White"
+                    app:mk_type="Sharingan" />
+
+                <TextView
+                    android:id="@+id/DashBoardLoaderText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Loading ..."
+                    android:textColor="@color/White"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/DashBoardLoader"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </FrameLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

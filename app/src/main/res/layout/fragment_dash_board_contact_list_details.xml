@@ -1,0 +1,153 @@
+ <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/White"
+        tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardContactListDetailsFragment">
+
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/contact_list_appBar_details_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/contact_list_details_collapseBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginBottom="32dp"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/contact_list_details_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:background="@color/Teal"
+                        android:fitsSystemWindows="true"
+                        android:scaleType="centerCrop"
+                        app:layout_collapseMode="parallax" />
+
+                    <ImageView
+                        android:id="@+id/contact_list_details_camera_image"
+                        style="@style/ConstraintLayoutViews"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_camera" />
+
+                    <ImageView
+                        android:id="@+id/contact_list_details_dp_edit"
+                        style="@style/ConstraintLayoutViews"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="10dp"
+                        android:src="@mipmap/ic_pencil"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintVertical_bias=".95" />
+                    <ImageView
+                        android:id="@+id/contact_list_details_dp_delete"
+                        style="@style/ConstraintLayoutViews"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="gone"
+                        android:src="@mipmap/ic_trash_can"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintVertical_bias=".95" />
+
+                    <EditText
+                        android:id="@+id/contact_list_details_name_edit"
+                        style="@style/ConstraintLayoutViews"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="34sp"
+                        app:layout_constraintHorizontal_bias=".33"
+                        app:layout_constraintVertical_bias=".91" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:contentInsetStart="10dp"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/contact_list_details_back"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="20dp"
+                        android:src="@mipmap/arrow_bold" />
+                </android.support.v7.widget.Toolbar>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="10dp">
+                    <ImageView
+                        android:id="@+id/contact_list_details_delete"
+                        style="@style/ConstraintLayoutViews"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:foregroundGravity="top"
+                        android:src="@mipmap/ic_trash_can"
+                        app:layout_constraintHorizontal_bias="0.3"
+                        app:layout_constraintVertical_bias=".5" />
+
+                    <ImageView
+                        android:id="@+id/contact_list_details_save"
+                        style="@style/ConstraintLayoutViews"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:foregroundGravity="top"
+                        android:src="@mipmap/ic_tick"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintVertical_bias=".5" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginBottom="50dp"
+            android:clipToPadding="false"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/contact_list_details_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+

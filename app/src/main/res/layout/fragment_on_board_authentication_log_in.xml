@@ -1,0 +1,229 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Purple"
+    tools:context=".AppStart.OnBoardFragments.OnBoardAuthenticationLogIn.OnBoardAuthenticationLogInFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/AuthLogInTextView"
+            style="@style/ConstraintLayoutViews"
+            android:layout_gravity="top|center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/login"
+            android:textColor="@color/White"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/ConstraintLayoutViews"
+            android:layout_width="match_parent"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:textColorHint="#E0E0E0"
+            android:theme="@style/LogIn">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/AuthLogInEmail"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/White"
+                android:drawableStart="@drawable/ic_email"
+                android:drawableTint="@color/White"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/White"
+                android:textColorHint="@color/White" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/ConstraintLayoutViews"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textColorHint="#E0E0E0"
+
+            android:theme="@style/LogIn"
+            app:layout_constraintVertical_bias=".4"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/White">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/AuthLogInPassword"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/White"
+                android:drawableStart="@drawable/ic_key"
+                android:drawableTint="@color/White"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textColor="@color/White"
+                android:textColorHint="@color/White" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/AuthForgotPassword"
+            style="@style/ConstraintLayoutViews"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="end"
+            android:text="@string/forgetpassword"
+            android:textColor="@color/White"
+            app:layout_constraintHorizontal_bias=".815"
+            app:layout_constraintVertical_bias=".49" />
+
+        <Button
+            android:id="@+id/AuthLogInButton"
+            style="@style/ConstraintLayoutViews"
+            android:layout_width="250dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/button_login"
+            android:text="@string/login"
+            android:textColor="@color/PurpleDark"
+            android:textSize="20sp"
+            app:layout_constraintVertical_bias=".6" />
+
+        <ImageButton
+            android:id="@+id/AuthLogInGooglePlus"
+            style="@style/ConstraintLayoutViews"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_google_plus"
+            android:src="@mipmap/ic_google_plus_white_36dp"
+            app:layout_constraintVertical_bias=".73" />
+
+        <View
+            style="@style/ConstraintLayoutViews"
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="148dp"
+            android:background="@color/White"
+            app:layout_constraintVertical_bias=".9" />
+
+        <TextView
+            android:id="@+id/AuthSignUp"
+            style="@style/ConstraintLayoutViews"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/notamember"
+            android:textColor="@color/White"
+            app:layout_constraintVertical_bias=".95" />
+    </LinearLayout>
+
+
+    <!--<android.support.constraint.ConstraintLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/AuthLogInTextView"-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:text="@string/login"-->
+    <!--android:textColor="@color/White"-->
+    <!--android:textSize="25sp"-->
+    <!--android:textStyle="bold"-->
+    <!--app:layout_constraintVertical_bias=".06" />-->
+
+    <!--<android.support.design.widget.TextInputLayout-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:gravity="center"-->
+    <!--android:textColorHint="#E0E0E0"-->
+    <!--android:theme="@style/LogIn"-->
+    <!--app:layout_constraintVertical_bias=".3">-->
+
+    <!--<android.support.design.widget.TextInputEditText-->
+    <!--android:id="@+id/AuthLogInEmail"-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="#ECEFF1"-->
+    <!--android:drawableStart="@drawable/ic_email"-->
+    <!--android:drawableTint="@color/White"-->
+    <!--android:hint="@string/email"-->
+    <!--android:inputType="textEmailAddress"-->
+    <!--android:textColor="@color/White"-->
+    <!--android:textColorHint="@color/White" />-->
+
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+
+    <!--<android.support.design.widget.TextInputLayout-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:gravity="center"-->
+    <!--android:textColorHint="#E0E0E0"-->
+    <!--android:theme="@style/LogIn"-->
+    <!--app:layout_constraintVertical_bias=".4"-->
+    <!--app:passwordToggleEnabled="true"-->
+    <!--app:passwordToggleTint="@color/White">-->
+
+    <!--<android.support.design.widget.TextInputEditText-->
+    <!--android:id="@+id/AuthLogInPassword"-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/White"-->
+    <!--android:drawableStart="@drawable/ic_key"-->
+    <!--android:drawableTint="@color/White"-->
+    <!--android:hint="@string/password"-->
+    <!--android:inputType="textPassword"-->
+    <!--android:textColor="@color/White"-->
+    <!--android:textColorHint="@color/White" />-->
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/AuthForgotPassword"-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:text="@string/forgetpassword"-->
+    <!--android:textColor="@color/White"-->
+    <!--app:layout_constraintHorizontal_bias=".815"-->
+    <!--app:layout_constraintVertical_bias=".49" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/AuthLogInButton"-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="250dp"-->
+    <!--android:background="@drawable/button_login"-->
+    <!--android:text="@string/login"-->
+    <!--android:textColor="@color/PurpleDark"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintVertical_bias=".6" />-->
+
+    <!--<ImageButton-->
+    <!--android:id="@+id/AuthLogInGooglePlus"-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="45dp"-->
+    <!--android:layout_height="45dp"-->
+    <!--android:background="@drawable/button_google_plus"-->
+    <!--android:src="@mipmap/ic_google_plus_white_36dp"-->
+    <!--app:layout_constraintVertical_bias=".73" />-->
+
+    <!--<View-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="1dp"-->
+    <!--android:background="@color/White"-->
+    <!--app:layout_constraintVertical_bias=".9" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/AuthSignUp"-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:text="@string/notamember"-->
+    <!--android:textColor="@color/White"-->
+    <!--app:layout_constraintVertical_bias=".95" />-->
+    <!--</android.support.constraint.ConstraintLayout>-->
+
+</ScrollView>

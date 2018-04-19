@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/AppStartLayout"
+    android:layout_height="match_parent"
+    tools:context="com.kanavdawra.pawmars.AppStartActivity">
+
+    <FrameLayout
+        android:id="@+id/AppStartFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp" />
+    <View
+        android:id="@+id/AppStartEmailView"
+        android:clickable="true"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <FrameLayout
+        android:id="@+id/AppStartFrameLayoutTemp"
+        android:layout_width="match_parent"
+        android:clickable="false"
+        android:focusable="false"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp" />
+
+    <View
+        android:id="@+id/AppStartView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/TranslucentGrey"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/AppStartLoaderLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:background="@color/Purple"
+        android:paddingBottom="10dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:visibility="gone">
+
+        <com.tuyenmonkey.mkloader.MKLoader
+            android:id="@+id/AppStartAuthSignUpLoader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:mk_color="@color/White"
+            app:mk_type="Sharingan" />
+
+        <TextView
+            android:id="@+id/AppStartAuthSignUpLoadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/registering"
+            android:textColor="@color/White"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/AppStartAuthSignUpLoader"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/AppStartLoaderLayoutWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:background="@color/White"
+        android:paddingBottom="10dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:visibility="gone">
+
+        <com.tuyenmonkey.mkloader.MKLoader
+            android:id="@+id/AppStartAuthSignUpLoaderPurple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:mk_color="@color/PurpleDark"
+            app:mk_type="Sharingan" />
+
+        <TextView
+            android:id="@+id/AppStartAuthSignUpLoadingTextPurple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/registering"
+            android:textColor="@color/PurpleDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/AppStartAuthSignUpLoaderPurple"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.design.widget.CoordinatorLayout>

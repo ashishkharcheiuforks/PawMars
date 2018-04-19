@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">PawMars</string>
+    <string name="login">Log In</string>
+    <string name="signup">Sign Up</string>
+    <string name="email">E-mail address</string>
+    <string name="password">Password</string>
+    <string name="confirmpassword">Confirm Password</string>
+    <string name="forgetpassword">Forget Password?</string>
+    <string name="notamember">Not a member yet? Sign Up here.</string>
+    <string name="alreadyamember">Already a member? Log In here.</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last name</string>
+    <string name="error_name">Not a valid name.</string>
+    <string name="error_email">Not a valid Email.</string>
+    <string name="registering">Registering...</string>
+    <string name="resentEmail"><u>Resend</u></string>
+    <string name="verification_send">We have sent a verification email to</string>
+    <string name="click_link">Click the link in your email to get started"</string>
+    <string name="i_clicked_link">I clicked the link</string>
+    <string name="title_activity_dash_board_avtivity">DashBoardAvtivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

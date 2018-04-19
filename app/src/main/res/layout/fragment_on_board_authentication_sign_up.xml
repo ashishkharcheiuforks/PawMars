@@ -1,0 +1,477 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context=".AppStart.OnBoardFragments.OnBoardAuthenticationSignUp.OnBoardAuthenticationSignUpFragment">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/AuthSignUpTextView"
+            style="@style/ConstraintLayoutViews"
+            android:layout_gravity="top|center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/signup"
+            android:textColor="@color/PurpleDark"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <android.support.constraint.ConstraintLayout
+            style="@style/ConstraintLayoutViews"
+            android:layout_width="180dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                style="@style/ConstraintLayoutViews"
+                android:id="@+id/AuthSignUpImage"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@mipmap/default_user_512px"
+                app:civ_border_color="@color/Purple"
+                app:civ_border_width="2dp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                style="@style/ConstraintLayoutViews"
+                android:id="@+id/AuthSignUpImageIconAdd"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:src="@mipmap/ic_add"
+                app:layout_constraintHorizontal_bias=".7"
+                app:layout_constraintVertical_bias=".95" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                style="@style/ConstraintLayoutViews"
+                android:id="@+id/AuthSignUpImageIconEdit"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:visibility="gone"
+                android:src="@mipmap/ic_edit"
+                app:layout_constraintHorizontal_bias=".7"
+                app:layout_constraintVertical_bias=".95" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                style="@style/ConstraintLayoutViews"
+                android:id="@+id/AuthSignUpImageIconDelete"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:visibility="gone"
+                android:src="@mipmap/ic_delete"
+                app:layout_constraintHorizontal_bias=".89"
+                app:layout_constraintVertical_bias=".95" />
+
+            <View
+                android:id="@+id/AuthSignUpImageDelete"
+                style="@style/ConstraintLayoutViews"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:visibility="gone"
+                app:layout_constraintHorizontal_bias=".97"
+                app:layout_constraintVertical_bias="1" />
+
+            <View
+                android:id="@+id/AuthSignUpImageAddEdit"
+                style="@style/ConstraintLayoutViews"
+                android:layout_width="96dp"
+                android:layout_height="96dp" />
+        </android.support.constraint.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/AuthSignUpTILFirstName"
+                style="@style/ConstraintLayoutViews"
+                android:gravity="center"
+                android:textColorHint="@color/LightGrey"
+                android:theme="@style/SignUp"
+                app:errorEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/AuthSignUpFirstName"
+                    android:layout_width="149dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Purple"
+                    android:drawableStart="@drawable/ic_person"
+                    android:drawableTint="@color/DarkGrey"
+                    android:hint="@string/firstname"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:nextFocusDown="@id/AuthSignUpLastName"
+                    android:textColor="@color/Black"
+                    android:textColorHint="@color/Purple" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/AuthSignUpTILLastName"
+                style="@style/ConstraintLayoutViews"
+                android:gravity="center"
+                android:textColorHint="@color/LightGrey"
+                android:theme="@style/SignUp"
+                app:errorEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/AuthSignUpLastName"
+                    android:layout_width="149dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Purple"
+                    android:drawableStart="@drawable/ic_person"
+                    android:drawableTint="@color/DarkGrey"
+                    android:hint="@string/lastname"
+                    android:inputType="text"
+                    android:textColor="@color/Black"
+                    android:textColorHint="@color/Purple" />
+
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/AuthSignUpTILEmail"
+            style="@style/ConstraintLayoutViews"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColorHint="@color/LightGrey"
+            android:theme="@style/SignUp"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/AuthSignUpEmail"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/Purple"
+                android:drawableStart="@drawable/ic_email"
+                android:drawableTint="@color/DarkGrey"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/Black"
+                android:textColorHint="@color/Purple" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/AuthSignUpTILPassword"
+            style="@style/ConstraintLayoutViews"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColorHint="@color/LightGrey"
+            android:theme="@style/SignUp"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/BlueGrey">
+
+
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/AuthSignUpPassword"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/Purple"
+                android:drawableStart="@drawable/ic_key"
+                android:drawableTint="@color/DarkGrey"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textColor="@color/Black"
+                android:textColorHint="@color/Purple" />
+
+
+            <!--<com.anthonycr.progress.AnimatedProgressBar-->
+            <!---->
+            <!--xmlns:custom="http://schemas.android.com/apk/res-auto"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="5dp"-->
+            <!--android:background="#BDBDBD"-->
+            <!--custom:bidirectionalAnimate="true"-->
+            <!--custom:progressColor="#2196f3"-->
+            <!--/>-->
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/AuthSignUpTILRePassword"
+            style="@style/ConstraintLayoutViews"
+            android:gravity="center"
+            android:textColorHint="@color/LightGrey"
+            android:theme="@style/SignUp"
+            app:errorEnabled="true"
+            android:layout_gravity="center"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/BlueGrey">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/AuthSignUpRePassword"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/Purple"
+                android:drawableStart="@drawable/ic_key"
+                android:drawableTint="@color/DarkGrey"
+                android:hint="@string/confirmpassword"
+                android:inputType="textPassword"
+                android:textColor="@color/Black"
+                android:textColorHint="@color/Purple" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/AuthSignUpButton"
+            style="@style/ConstraintLayoutViews"
+            android:layout_width="250dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_signup_disable"
+            android:text="@string/signup"
+            android:enabled="false"
+            android:textColor="@color/White"
+            android:textSize="20sp" />
+
+        <View
+            style="@style/ConstraintLayoutViews"
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/Purple" />
+
+        <TextView
+            android:id="@+id/AuthLogIn"
+            style="@style/ConstraintLayoutViews"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/alreadyamember"
+            android:textColor="@color/PurpleDark" />
+        <com.steelkiwi.cropiwa.CropIwaView
+            android:id="@+id/AuthSignUpCropView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            />
+
+    </LinearLayout>
+
+
+    <!--<android.support.constraint.ConstraintLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/AuthSignUpTextView"-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:text="@string/signup"-->
+    <!--android:textColor="@color/PurpleDark"-->
+    <!--android:textSize="25sp"-->
+    <!--android:textStyle="bold"-->
+    <!--app:layout_constraintVertical_bias=".06" />-->
+
+    <!--<android.support.constraint.ConstraintLayout-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="180dp"-->
+    <!--app:layout_constraintVertical_bias=".2">-->
+
+    <!--<de.hdodenhof.circleimageview.CircleImageView-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="96dp"-->
+    <!--android:layout_height="96dp"-->
+    <!--android:src="@mipmap/default_user_512px"-->
+    <!--app:civ_border_color="@color/Purple"-->
+    <!--app:civ_border_width="2dp" />-->
+
+    <!--<de.hdodenhof.circleimageview.CircleImageView-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="21dp"-->
+    <!--android:layout_height="21dp"-->
+    <!--android:src="@mipmap/ic_add"-->
+    <!--app:layout_constraintHorizontal_bias=".7"-->
+    <!--app:layout_constraintVertical_bias=".95" />-->
+
+    <!--<de.hdodenhof.circleimageview.CircleImageView-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="21dp"-->
+    <!--android:layout_height="21dp"-->
+    <!--android:src="@mipmap/ic_edit"-->
+    <!--app:layout_constraintHorizontal_bias=".7"-->
+    <!--app:layout_constraintVertical_bias=".95" />-->
+
+    <!--<de.hdodenhof.circleimageview.CircleImageView-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="21dp"-->
+    <!--android:layout_height="21dp"-->
+    <!--android:src="@mipmap/ic_delete"-->
+    <!--app:layout_constraintHorizontal_bias=".89"-->
+    <!--app:layout_constraintVertical_bias=".95" />-->
+
+    <!--<View-->
+    <!--android:id="@+id/AuthSignUpImageDelete"-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="35dp"-->
+    <!--android:layout_height="35dp"-->
+    <!--app:layout_constraintHorizontal_bias=".97"-->
+    <!--app:layout_constraintVertical_bias="1" />-->
+
+    <!--<View-->
+    <!--android:id="@+id/AuthSignUpImageAddEdit"-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="96dp"-->
+    <!--android:layout_height="96dp" />-->
+    <!--</android.support.constraint.ConstraintLayout>-->
+
+
+    <!--<android.support.design.widget.TextInputLayout-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:gravity="center"-->
+    <!--android:textColorHint="#BDBDBD"-->
+    <!--android:theme="@style/SignUp"-->
+    <!--app:layout_constraintHorizontal_bias=".206"-->
+    <!--app:layout_constraintVertical_bias=".4">-->
+
+    <!--<android.support.design.widget.TextInputEditText-->
+    <!--android:id="@+id/AuthSignUpFirstName"-->
+    <!--android:layout_width="145dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/Purple"-->
+    <!--android:drawableStart="@drawable/ic_person"-->
+    <!--android:drawableTint="#263238"-->
+    <!--android:hint="@string/firstname"-->
+    <!--android:imeOptions="actionNext"-->
+    <!--android:inputType="text"-->
+    <!--android:nextFocusDown="@id/AuthSignUpLastName"-->
+    <!--android:textColor="@color/Black"-->
+    <!--android:textColorHint="@color/Purple" />-->
+
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+    <!--<android.support.design.widget.TextInputLayout-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:gravity="center"-->
+    <!--android:textColorHint="#BDBDBD"-->
+    <!--android:theme="@style/SignUp"-->
+    <!--app:layout_constraintHorizontal_bias=".787"-->
+    <!--app:layout_constraintVertical_bias=".4">-->
+
+    <!--<android.support.design.widget.TextInputEditText-->
+    <!--android:id="@+id/AuthSignUpLastName"-->
+    <!--android:layout_width="145dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/Purple"-->
+    <!--android:drawableStart="@drawable/ic_person"-->
+    <!--android:drawableTint="#263238"-->
+    <!--android:hint="@string/lastname"-->
+    <!--android:inputType="text"-->
+    <!--android:textColor="@color/Black"-->
+    <!--android:textColorHint="@color/Purple" />-->
+
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+
+    <!--<android.support.design.widget.TextInputLayout-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:gravity="center"-->
+    <!--android:textColorHint="#BDBDBD"-->
+    <!--android:theme="@style/SignUp"-->
+    <!--app:layout_constraintVertical_bias=".5">-->
+
+    <!--<android.support.design.widget.TextInputEditText-->
+    <!--android:id="@+id/AuthSignUpEmail"-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/Purple"-->
+    <!--android:drawableStart="@drawable/ic_email"-->
+    <!--android:drawableTint="#263238"-->
+    <!--android:hint="@string/email"-->
+    <!--android:inputType="textEmailAddress"-->
+    <!--android:textColor="@color/Black"-->
+    <!--android:textColorHint="@color/Purple" />-->
+
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+
+    <!--<android.support.design.widget.TextInputLayout-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:gravity="center"-->
+    <!--android:textColorHint="#BDBDBD"-->
+    <!--android:theme="@style/SignUp"-->
+    <!--app:layout_constraintVertical_bias=".6"-->
+    <!--app:passwordToggleEnabled="true"-->
+    <!--app:passwordToggleTint="#90A4AE">-->
+
+    <!--<android.support.design.widget.TextInputEditText-->
+    <!--android:id="@+id/AuthSignUpPassword"-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/Purple"-->
+    <!--android:drawableStart="@drawable/ic_key"-->
+    <!--android:drawableTint="#263238"-->
+    <!--android:hint="@string/password"-->
+    <!--android:inputType="textPassword"-->
+    <!--android:textColor="@color/Black"-->
+    <!--android:textColorHint="@color/Purple" />-->
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+    <!--<android.support.design.widget.TextInputLayout-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:gravity="center"-->
+    <!--android:textColorHint="#BDBDBD"-->
+    <!--android:theme="@style/SignUp"-->
+    <!--app:layout_constraintVertical_bias=".7"-->
+    <!--app:passwordToggleEnabled="true"-->
+    <!--app:passwordToggleTint="#90A4AE">-->
+
+    <!--<android.support.design.widget.TextInputEditText-->
+    <!--android:id="@+id/AuthSignUpRePassword"-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:backgroundTint="@color/Purple"-->
+    <!--android:drawableStart="@drawable/ic_key"-->
+    <!--android:drawableTint="#263238"-->
+    <!--android:hint="@string/confirmpassword"-->
+    <!--android:inputType="textPassword"-->
+    <!--android:textColor="@color/Black"-->
+    <!--android:textColorHint="@color/Purple" />-->
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+    <!--<Button-->
+    <!--android:id="@+id/AuthSignUpButton"-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="250dp"-->
+    <!--android:background="@drawabutton_signup_enablegnup"-->
+    <!--android:text="@string/signup"-->
+    <!--android:textColor="@color/White"-->
+    <!--android:textSize="20sp"-->
+    <!--app:layout_constraintVertical_bias=".85" />-->
+
+    <!--<View-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="1dp"-->
+    <!--android:background="@color/Purple"-->
+    <!--app:layout_constraintVertical_bias=".9" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/AuthSignUp"-->
+    <!--style="@style/ConstraintLayoutViews"-->
+    <!--android:text="@string/alreadyamember"-->
+    <!--android:textColor="@color/PurpleDark"-->
+    <!--app:layout_constraintVertical_bias=".95" />-->
+    <!--</android.support.constraint.ConstraintLayout>-->
+
+</FrameLayout>
+
+
+</ScrollView>

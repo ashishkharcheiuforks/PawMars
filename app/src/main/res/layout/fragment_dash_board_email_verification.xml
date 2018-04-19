@@ -1,0 +1,83 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardFragments.DashBoardEmailVerificationFragment">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:contentInsetStart="0dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/Purple">
+
+            <ImageView
+                android:id="@+id/DashBoardEmailVerificationFragmentCross"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_cross" />
+
+            <TextView
+                style="@style/ConstraintLayoutViews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirm your email"
+                android:textColor="@color/White"
+                android:textSize="20sp"
+                app:layout_constraintHorizontal_bias=".5"
+                app:layout_constraintLeft_toRightOf="@+id/email_toolbar_cross" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.Toolbar>
+
+
+    <ImageView
+        style="@style/ConstraintLayoutViews"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:contentDescription="Email Failed"
+        android:src="@mipmap/ic_email_failed"
+        app:layout_constraintVertical_bias=".28" />
+
+    <TextView
+        style="@style/ConstraintLayoutViews"
+        android:text="Please verify your email at"
+        android:textSize="16sp"
+        app:layout_constraintVertical_bias=".44" />
+
+    <TextView
+        android:id="@+id/dashBoardEmailVerificationFragmentEmail"
+        style="@style/ConstraintLayoutViews"
+        android:text="@string/email"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintVertical_bias=".48" />
+
+    <TextView
+        style="@style/ConstraintLayoutViews"
+        android:text="@string/click_link"
+        android:textSize="16sp"
+        app:layout_constraintVertical_bias=".52" />
+
+    <Button
+        android:id="@+id/DashBoardEmailVerificationFragmentGetStarted"
+        style="@style/ConstraintLayoutViews"
+        android:background="@color/Purple"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="Get Started"
+        android:textColor="@color/White"
+        android:textSize="16sp"
+        app:layout_constraintVertical_bias=".6" />
+
+    <TextView
+        android:id="@+id/DashBoardEmailVerificationFragmentResend"
+        style="@style/ConstraintLayoutViews"
+        android:text="@string/resentEmail"
+        android:textColor="@color/Purple"
+        android:textSize="16sp"
+        app:layout_constraintVertical_bias=".66" />
+</android.support.constraint.ConstraintLayout>

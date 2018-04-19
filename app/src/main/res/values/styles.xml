@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/Purple</item>
+        <item name="colorPrimaryDark">@color/PurpleDark</item>
+        <item name="colorAccent">@color/TealAccent</item>
+    </style>
+
+    <style name="ConstraintLayoutViews" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="LogIn">
+        <item name="colorPrimary">@color/Purple</item>
+        <item name="colorPrimaryDark">@color/PurpleDark</item>
+        <item name="colorAccent">@color/White</item>
+    </style>
+    >
+
+    <style name="SignUp">
+        <item name="colorPrimary">@color/Purple</item>
+        <item name="colorPrimaryDark">@color/PurpleDark</item>
+        <item name="colorAccent">@color/Purple</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>
