@@ -61,6 +61,12 @@ dependencies {
 
     compile 'com.snatik:storage:2.1.0'
 
+    compile 'com.github.clans:fab:1.6.4'
+    compile ('com.wdullaer:materialdatetimepicker:3.5.1') {
+        exclude group: 'com.android.support'
+    }
+
+
 }
 
 

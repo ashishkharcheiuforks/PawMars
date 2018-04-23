@@ -36,7 +36,7 @@
         android:visibility="gone" />
 
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:id="@+id/AppStartLoaderLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,8 +46,8 @@
         android:paddingBottom="10dp"
         android:paddingEnd="10dp"
         android:paddingStart="20dp"
-        android:paddingTop="10dp"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:paddingTop="10dp">
 
         <com.tuyenmonkey.mkloader.MKLoader
             android:id="@+id/AppStartAuthSignUpLoader"
@@ -62,6 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_gravity="center"
             android:layout_marginStart="15dp"
             android:layout_marginTop="8dp"
             android:text="@string/registering"
@@ -70,8 +71,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/AppStartAuthSignUpLoader"
             app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
-    <android.support.constraint.ConstraintLayout
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/AppStartLoaderLayoutWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,9 +81,9 @@
         android:background="@color/White"
         android:paddingBottom="10dp"
         android:paddingEnd="10dp"
+        android:visibility="gone"
         android:paddingStart="20dp"
-        android:paddingTop="10dp"
-        android:visibility="gone">
+        android:paddingTop="10dp">
 
         <com.tuyenmonkey.mkloader.MKLoader
             android:id="@+id/AppStartAuthSignUpLoaderPurple"
@@ -99,12 +100,13 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:text="@string/registering"
             android:textColor="@color/PurpleDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/AppStartAuthSignUpLoaderPurple"
             app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

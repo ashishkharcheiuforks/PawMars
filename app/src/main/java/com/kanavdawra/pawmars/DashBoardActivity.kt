@@ -39,6 +39,7 @@ import com.kanavdawra.pawmars.Checks.syncLocalContacts
 import com.kanavdawra.pawmars.Constants.popUpName
 import com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardContactsUpdateFragment
 import com.kanavdawra.pawmars.DashBoard.DashBoardFragments.DashBoardContactsViewPagerFragment
+import com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardAddEventFragment
 import com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardContactListDetailsFragment
 import com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardCreateContactListFragment
 import com.kanavdawra.pawmars.InterFace.DashBoardToolBarInterface
@@ -412,6 +413,7 @@ class DashBoardActivity : AppCompatActivity() {
     var dashBoardContactsUpdateFragment: DashBoardContactsUpdateFragment? = null
     var dashBoardCreateContactListFragment: DashBoardCreateContactListFragment? = null
     var dashBoardContactListDetailsFragment: DashBoardContactListDetailsFragment? = null
+    var dashBoardAddEventFragment: DashBoardAddEventFragment? = null
 
     fun popUpFragment() {
         val popUpPage = object : PopUpPage {
@@ -431,6 +433,10 @@ class DashBoardActivity : AppCompatActivity() {
                     dashBoardContactListDetailsFragment = DashBoardContactListDetailsFragment()
                     supportFragmentManager.beginTransaction().add(R.id.popup_layout, dashBoardContactListDetailsFragment).commit()
                 }
+                if (fragment == "AddEvent") {
+                    dashBoardAddEventFragment= DashBoardAddEventFragment()
+                    supportFragmentManager.beginTransaction().add(R.id.popup_layout,dashBoardAddEventFragment).commit()
+                }
                 DashBoard_ToolBar_Layout.visibility=View.GONE
 
             }
@@ -447,6 +453,9 @@ class DashBoardActivity : AppCompatActivity() {
                 if (fragment == "ContactListDetails") {
                     supportFragmentManager.beginTransaction().remove(dashBoardContactListDetailsFragment).commit()
 
+                }
+                if (fragment == "AddEvent") {
+                    supportFragmentManager.beginTransaction().remove(dashBoardAddEventFragment).commit()
                 }
 
             }
