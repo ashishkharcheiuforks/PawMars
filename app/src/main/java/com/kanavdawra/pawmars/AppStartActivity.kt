@@ -22,11 +22,18 @@ import com.kanavdawra.pawmars.InterFace.AppStartInterFace
 import kotlinx.android.synthetic.main.activity_app_start.*
 import com.kanavdawra.pawmars.Constants.signedIn
 import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.karumi.dexter.listener.single.PermissionListener
+import android.Manifest.permission.RECORD_AUDIO
+import android.Manifest.permission.READ_CONTACTS
+import android.content.Context.ACTIVITY_SERVICE
+import android.app.ActivityManager
+import android.content.Context
 
 
 class AppStartActivity : AppCompatActivity() {
@@ -154,22 +161,21 @@ class AppStartActivity : AppCompatActivity() {
 
     fun permissions() {
         Dexter.withActivity(this)
-                .withPermission(android.Manifest.permission.READ_CONTACTS)
-                .withListener(object : PermissionListener {
-                    override fun onPermissionGranted(response: PermissionGrantedResponse) {
-
+                .withPermissions(android.Manifest.permission.READ_CONTACTS, android.Manifest.permission.READ_PHONE_STATE)
+                .withListener(object : MultiplePermissionsListener {
+                    override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
+                        if(!report!!.areAllPermissionsGranted()){
+                            (getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).clearApplicationUserData()
+                            finish()
+                            startActivity(Intent(this@AppStartActivity,AppStartActivity::class.java))
+                        }
                     }
 
-                    override fun onPermissionDenied(response: PermissionDeniedResponse) {
-                    }
-
-                    override fun onPermissionRationaleShouldBeShown(permission: PermissionRequest, token: PermissionToken) {
-
-
-                    }
+                    override fun onPermissionRationaleShouldBeShown(permissions: MutableList<PermissionRequest>?, token: PermissionToken?) {}
 
 
                 }).check()
+
     }
 
     override fun onStop() {

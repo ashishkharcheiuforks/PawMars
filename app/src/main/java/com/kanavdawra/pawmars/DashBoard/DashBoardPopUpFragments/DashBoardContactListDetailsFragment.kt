@@ -111,7 +111,7 @@ class DashBoardContactListDetailsFragment : Fragment() {
         contact_list_details_delete.setOnClickListener {
 
             AlertDialog.Builder(activity!!).setMessage("By clicking Delete the contact list will be deleted permanently.")
-                    .setTitle("By clicking Delete the contact list will be deleted permanently.")
+                    .setTitle("Are you sure?")
                     .setIcon(R.drawable.ic_trash_can_x_dark)
                     .setPositiveButton("Delete") { dialogInterface, i ->
                deleteList()

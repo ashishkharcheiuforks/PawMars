@@ -63,7 +63,6 @@ class DashBoardContactsFragment : Fragment() {
                 selectedContacts = contactsAdapter!!.selectedContacts()
                 contactsAdapter!!.selectionCount = 0
                 contactsAdapter!!.selectionCheck = false
-                DashBoardToolBar(activity!!).clean()
                 PopUpFragmnent(activity!!).create("CreateContactList")
             }
 

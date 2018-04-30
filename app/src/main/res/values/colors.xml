@@ -25,4 +25,7 @@
     <color name="TranslucentBlue">#7d6fcdff</color>
     <color name="Transparent">#00ffffff</color>
     <color name="Amber">#FFC107</color>
+    <color name="DeepOrange">#dd2c00</color>
+    <color name="DeepOrangeDark">#a30000</color>
+    <color name="BlueAccent">#2962ff</color>
 </resources>

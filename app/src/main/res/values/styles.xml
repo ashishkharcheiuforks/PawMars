@@ -29,11 +29,32 @@
         <item name="colorPrimaryDark">@color/PurpleDark</item>
         <item name="colorAccent">@color/Purple</item>
     </style>
+
+
     <style name="AddEvent">
         <item name="colorPrimary">@color/Purple</item>
         <item name="colorPrimaryDark">@color/PurpleDark</item>
         <item name="colorAccent">@color/Teal</item>
     </style>
+
+    <style name="EventEdit">
+        <item name="colorPrimary">@color/DeepOrange</item>
+        <item name="colorPrimaryDark">@color/DeepOrangeDark</item>
+        <item name="colorAccent">@color/BlueAccent</item>
+    </style>
+
+    <style name="TextLimitStyle" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">#536DFE</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextLimitError" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#ff0000</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

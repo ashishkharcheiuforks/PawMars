@@ -1,0 +1,130 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardEventViewPager.DashBoardEventTermsAndConditionsFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/DashBoard_Event_TaC_ToolBar_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/Blue"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/DashBoard_Event_TaC_Text_EventName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Final Submit"
+                    android:textColor="@color/White"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_TaC_Text_Back"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@mipmap/arrow" />
+
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_TaC_Text_Next"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:padding="10dp"
+                    android:rotation="180"
+                    android:src="@mipmap/arrow"
+                    android:visibility="gone" />
+
+                <com.tuyenmonkey.mkloader.MKLoader
+                    android:id="@+id/DashBoard_Event_TaC_Text_Loader"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:padding="10dp"
+                    android:rotation="180"
+                    android:visibility="gone"
+                    app:mk_color="@color/White"
+                    app:mk_type="Whirlpool" />
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/DashBoard_Event_TaC_Terms_And_Conditions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/DashBoard_Event_TaC_TextView1"
+        android:layout_below="@id/DashBoard_Event_TaC_ToolBar_Layout"
+        android:layout_margin="10dp"
+        android:background="@color/Red" />
+
+    <CheckBox
+        android:id="@+id/DashBoard_Event_TaC_CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="7dp"
+        android:layout_marginStart="10dp" />
+
+    <TextView
+
+        android:id="@+id/DashBoard_Event_TaC_TextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toEndOf="@id/DashBoard_Event_TaC_CheckBox"
+        android:text="Please agree to our"
+        android:textColor="@color/Black" />
+
+    <TextView
+
+        android:id="@+id/DashBoard_Event_TaC_TextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toEndOf="@id/DashBoard_Event_TaC_TextView1"
+        android:text="Terms and Conditions"
+        android:textColor="@color/BlueAccent" />
+
+    <View
+        android:layout_width="140dp"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_toEndOf="@id/DashBoard_Event_TaC_TextView1"
+        android:background="@color/Blue" />
+
+    <TextView
+
+        android:id="@+id/DashBoard_Event_TaC_TextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@id/DashBoard_Event_TaC_TextView2"
+        android:text="to proceed."
+        android:textColor="@color/Black" />
+
+
+</RelativeLayout>

@@ -9,19 +9,19 @@ class DashBoardNavigationReciever(val navigation: DashBoardNavigationInterFace) 
     override fun onReceive(context: Context?, intent: Intent?) {
         if (intent!!.getStringExtra("task") == "navigation") {
             if (intent.getStringExtra("navigation") == "home") {
-                navigation.home()
+                navigation.Home()
             }
             if (intent.getStringExtra("navigation") == "contacts") {
-                navigation.contacts()
+                navigation.Contacts()
             }
             if (intent.getStringExtra("navigation") == "events") {
-                navigation.events()
+                navigation.Events()
             }
             if (intent.getStringExtra("navigation") == "verify") {
-                navigation.verify()
+                navigation.Verify()
             }
             if (intent.getStringExtra("navigation") == "history") {
-                navigation.history()
+                navigation.History()
             }
         }
 

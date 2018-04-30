@@ -49,8 +49,13 @@ class ContactsAdapter(val context: Context, var contacts: ArrayList<Contact>) : 
     }
 
     override fun onBindViewHolder(holder: ContactsRowViewHolder, position: Int) {
+        holder.name.setTextColor(ContextCompat.getColor(context,R.color.Black))
         holder.name.text = contacts[position].name
-
+        val ccodeCheck = contacts[position].phoneNumber[0]
+        if (ccodeCheck.toString() != "+" && contacts[position].phoneNumber.count()>=10) {
+            holder.name.text = "*Add Country Code"
+            holder.name.setTextColor(ContextCompat.getColor(context,R.color.Red))
+        }
         holder.imageText.text = getImageText(position)
         holder.image.setImageDrawable(ColorDrawable(getImageColor(position)))
         if (contacts[position].isSelected) {
@@ -79,12 +84,12 @@ class ContactsAdapter(val context: Context, var contacts: ArrayList<Contact>) : 
             if (temp[char].toString() == " ") {
 
                 text.add(temp[char + 1])
-                return text.joinToString().removeRange(1,3)
+                return text.joinToString().removeRange(1, 3)
 
             }
         }
         text.add(temp[1])
-        return text.joinToString().removeRange(1,3)
+        return text.joinToString().removeRange(1, 3)
     }
 
     fun getImageColor(position: Int): Int {

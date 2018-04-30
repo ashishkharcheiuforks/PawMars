@@ -1,0 +1,490 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardEventViewPager.DashBoardEventEditFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/DeepOrange">
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_Edit_Back"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:padding="10dp"
+                    android:src="@mipmap/arrow" />
+
+                <TextView
+                    android:id="@+id/DashBoard_Event_Edit_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:shadowRadius="4"
+                    android:text="Edit Event"
+                    android:textColor="@color/White"
+                    android:textSize="23dp" />
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_Edit_Save"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:src="@mipmap/ic_tick" />
+
+                <com.tuyenmonkey.mkloader.MKLoader
+                    android:id="@+id/DashBoard_Event_Edit_Save_Loader"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    android:padding="10dp"
+                    app:mk_color="@color/White"
+                    app:mk_type="Whirlpool" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardAddEventFragment">
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/DashBoard_Event_Edit_EventName_Layout"
+                style="@style/ConstraintLayoutViews"
+                android:layout_width="match_parent"
+                android:layout_marginTop="60dp"
+                android:gravity="center"
+                android:theme="@style/EventEdit">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/DashBoard_Event_Edit_EventName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/BlueAccent"
+                    android:drawablePadding="15dp"
+                    android:drawableStart="@mipmap/event_name"
+                    android:hint="Event Name"
+                    android:inputType="text"
+                    android:paddingStart="10dp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:id="@+id/DashBoard_Event_Edit_Calender_Clock"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="125dp" />
+
+            <ImageView
+                android:id="@+id/DashBoard_Event_Edit_Calender_Clock_Image"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="135dp"
+                android:src="@mipmap/calendar_clock" />
+
+            <View
+                android:id="@+id/DashBoard_Event_Edit_Calender_Clock_UnderLine"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="160dp"
+                android:background="@color/BlueAccent" />
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/DashBoard_Event_Edit_TimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="125sp"
+                android:layout_toEndOf="@id/DashBoard_Event_Edit_Calender_Clock_Image"
+                android:gravity="center"
+                android:textColor="@color/Blue"
+                android:textSize="16dp" />
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/DashBoard_Event_Edit_DayText"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="125sp"
+                android:layout_toEndOf="@id/DashBoard_Event_Edit_TimeText"
+                android:gravity="center"
+                android:textColor="@color/Green"
+                android:textSize="16dp" />
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/DashBoard_Event_Edit_DateText"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="125sp"
+                android:layout_toEndOf="@id/DashBoard_Event_Edit_DayText"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/Black"
+                android:textSize="16dp" />
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/DashBoard_Event_Edit_TimeZoneText"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="125sp"
+                android:layout_toEndOf="@id/DashBoard_Event_Edit_DateText"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/Red"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/DashBoard_Event_Edit_Time_Error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="135sp"
+                android:text="Date and Time field cannot be left empty"
+                android:textColor="@color/Red"
+                android:visibility="gone" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/DashBoard_Event_Edit_PlaceName_Layout"
+                style="@style/ConstraintLayoutViews"
+                android:layout_width="match_parent"
+                android:layout_marginTop="170dp"
+                android:gravity="center"
+                android:theme="@style/EventEdit">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/DashBoard_Event_Edit_PlaceName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/BlueAccent"
+                    android:drawablePadding="15dp"
+                    android:drawableStart="@mipmap/location"
+                    android:hint="Place Name"
+                    android:inputType="text"
+                    android:paddingStart="10dp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                style="@style/ConstraintLayoutViews"
+                android:layout_width="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="230dp"
+                android:gravity="center"
+                android:theme="@style/EventEdit">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/DashBoard_Event_Edit_AddressLine1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/BlueAccent"
+                    android:drawablePadding="15dp"
+                    android:drawableStart="@mipmap/address"
+                    android:hint="Address Line 1"
+                    android:inputType="text"
+                    android:paddingStart="10dp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                style="@style/ConstraintLayoutViews"
+                android:layout_width="match_parent"
+                android:layout_marginTop="290dp"
+                android:gravity="center"
+                android:theme="@style/EventEdit">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/DashBoard_Event_Edit_AddressLine2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/BlueAccent"
+                    android:drawablePadding="15dp"
+                    android:drawableStart="@mipmap/address"
+                    android:hint="Address Line 2"
+                    android:inputType="text"
+                    android:paddingStart="10dp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/DashBoard_Event_Edit_City_Layout"
+                style="@style/ConstraintLayoutViews"
+                android:layout_width="match_parent"
+                android:layout_marginTop="350dp"
+                android:layout_toStartOf="@id/DashBoard_Event_Edit_CityPin_View"
+                android:gravity="center"
+                android:theme="@style/EventEdit">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/DashBoard_Event_Edit_City"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/textInputLayout2"
+                    android:layout_alignParentStart="true"
+                    android:backgroundTint="@color/BlueAccent"
+                    android:drawablePadding="15dp"
+                    android:drawableStart="@mipmap/city"
+                    android:hint="City"
+                    android:inputType="text"
+                    android:paddingStart="10dp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:id="@+id/DashBoard_Event_Edit_CityPin_View"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_centerInParent="true" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/DashBoard_Event_Edit_PinCode_Layout"
+                style="@style/ConstraintLayoutViews"
+                android:layout_width="match_parent"
+                android:layout_marginTop="350dp"
+                android:layout_toEndOf="@id/DashBoard_Event_Edit_CityPin_View"
+                android:gravity="center"
+                android:theme="@style/EventEdit">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/DashBoard_Event_Edit_PinCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/BlueAccent"
+                    android:drawablePadding="15dp"
+                    android:drawableStart="@mipmap/pincode"
+                    android:hint="PinCode"
+                    android:inputType="number"
+                    android:paddingStart="10dp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/DashBoard_Event_Edit_CountryPicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="415dp"
+                app:ccpDialog_keyboardAutoPopup="false"
+                app:ccp_countryPreference="US,IN,CA,AU,GB,JP"
+                app:ccp_showFullName="true"
+                app:ccp_showNameCode="false"
+                app:ccp_showPhoneCode="false"
+                app:ccp_textGravity="LEFT" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/DashBoard_Event_Edit_Description_Layout"
+                style="@style/ConstraintLayoutViews"
+                android:layout_width="match_parent"
+                android:layout_marginTop="455dp"
+                android:gravity="center"
+                android:theme="@style/EventEdit">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/DashBoard_Event_Edit_Description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/BlueAccent"
+                    android:drawablePadding="15dp"
+                    android:gravity="top|start"
+                    android:hint="Description"
+                    android:inputType="textMultiLine"
+                    android:maxLines="5"
+                    android:minLines="5"
+                    android:paddingStart="10dp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="600dp"
+                android:background="@color/LightGrey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/DashBoard_Event_Edit_Description_Layout"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Select Conatct List"
+                android:textColor="@color/Grey"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/DashBoard_Event_Edit_ContactList"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/view"
+                android:layout_marginTop="30dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/DashBoard_Event_Edit_Description_Layout"
+                android:layout_marginEnd="60dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Total Conatcts: "
+                android:textColor="@color/Black" />
+
+            <TextView
+                android:id="@+id/DashBoard_Event_Edit_ContactList_Contacts_Count"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/DashBoard_Event_Edit_Description_Layout"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/Black"
+                android:textStyle="bold" />
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="835dp"
+                android:background="@color/LightGrey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/DashBoard_Event_Edit_ContactList"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:text="Add Images"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/DashBoard_Event_Edit_Image1"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="875dp"
+                android:layout_toStartOf="@id/DashBoard_Event_Edit_CityPin_View"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/event_default_image" />
+
+            <ImageView
+                android:id="@+id/DashBoard_Event_Edit_Image1_Cross"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="975dp"
+                android:layout_toStartOf="@id/DashBoard_Event_Edit_CityPin_View"
+                android:background="@drawable/remove_red"
+                android:src="@mipmap/ic_cross"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/DashBoard_Event_Edit_Image2"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="875dp"
+                android:layout_toEndOf="@id/DashBoard_Event_Edit_CityPin_View"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/event_default_image"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/DashBoard_Event_Edit_Image2_Cross"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="975dp"
+                android:background="@drawable/remove_red"
+                android:src="@mipmap/ic_cross"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/DashBoard_Event_Edit_Image3"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1015dp"
+                android:layout_toStartOf="@id/DashBoard_Event_Edit_CityPin_View"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/event_default_image"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/DashBoard_Event_Edit_Image3_Cross"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="1115dp"
+                android:layout_toStartOf="@id/DashBoard_Event_Edit_CityPin_View"
+                android:background="@drawable/remove_red"
+                android:src="@mipmap/ic_cross"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/DashBoard_Event_Edit_Image4"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1015dp"
+                android:layout_toEndOf="@id/DashBoard_Event_Edit_CityPin_View"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/event_default_image"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/DashBoard_Event_Edit_Image4_Cross"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="1115dp"
+                android:background="@drawable/remove_red"
+                android:src="@mipmap/ic_cross"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

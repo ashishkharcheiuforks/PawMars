@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardEventViewPager.DashBoardEventSmSTextFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/DashBoard_Event_SmS_Text_ToolBar_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/Blue"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_SmS_Text_Back"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@mipmap/arrow" />
+
+                <TextView
+                    android:id="@+id/DashBoard_Event_SmS_Text_EventName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@id/DashBoard_Event_SmS_Text_Back"
+                    android:layout_toStartOf="@id/DashBoard_Event_SmS_Text_Next"
+                    android:gravity="center"
+                    android:text="SMS Text"
+                    android:textColor="@color/White"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_SmS_Text_Next"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:padding="10dp"
+                    android:rotation="180"
+                    android:src="@mipmap/arrow" />
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/DashBoard_Event_SmS_Text_EditText_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/DashBoard_Event_SmS_Text_ToolBar_Layout"
+        android:layout_margin="20dp"
+        android:layout_marginTop="10dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="104"
+        app:counterOverflowTextAppearance="@style/TextLimitError"
+        app:counterTextAppearance="@style/TextLimitStyle"
+        app:errorEnabled="true"
+        app:errorTextAppearance="@style/TextLimitError">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/DashBoard_Event_SmS_Text_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/BlueAccent"
+            android:gravity="start|top"
+            android:hint="SMS Text"
+            android:inputType="textMultiLine"
+            android:maxLines="10"
+            android:minLines="10"
+            android:textColor="@color/Black" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/DashBoard_Event_SmS_Text_RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/DashBoard_Event_SmS_Text_EditText_Layout"
+        android:layout_marginTop="10dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/DashBoard_Event_SmS_Text_EditText_Layout"
+        android:layout_marginTop="10dp">
+
+        <co.lujun.androidtagview.TagContainerLayout
+            android:id="@+id/DashBoard_Event_SmS_Text_TagContainerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/DashBoard_Event_SmS_Text_EditText_Layout"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            app:container_enable_drag="false"
+            app:horizontal_interval="10dp"
+            app:tag_clickable="true"
+            app:tag_theme="none"
+            app:vertical_interval="10dp" />
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardFragments.DashBoardEventDetailsImageLoaderFragment">
+
+    <ImageView
+        android:id="@+id/event_details_imageloadar_image"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>

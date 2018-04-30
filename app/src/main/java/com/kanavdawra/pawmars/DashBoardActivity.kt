@@ -15,14 +15,11 @@ import android.widget.TextView
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FirebaseAuth
-import com.kanavdawra.pawmars.AppStart.OnBoardFragment
 import com.kanavdawra.pawmars.BroadCastReceiver.DashBoardNavigationReciever
 import com.kanavdawra.pawmars.BroadCastReceiver.DashBoardReciever
 import com.kanavdawra.pawmars.Constants.logoutButton
 import com.kanavdawra.pawmars.DashBoard.DashBoardFragments.*
 import com.kanavdawra.pawmars.DashBoard.DashBoardUtility
-import com.kanavdawra.pawmars.InterFace.DashBoard
-import com.kanavdawra.pawmars.InterFace.DashBoardNavigationInterFace
 import com.yarolegovich.slidingrootnav.SlidingRootNav
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
 import com.yarolegovich.slidingrootnav.transform.YTranslationTransformation
@@ -42,8 +39,9 @@ import com.kanavdawra.pawmars.DashBoard.DashBoardFragments.DashBoardContactsView
 import com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardAddEventFragment
 import com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardContactListDetailsFragment
 import com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardCreateContactListFragment
-import com.kanavdawra.pawmars.InterFace.DashBoardToolBarInterface
-import com.kanavdawra.pawmars.InterFace.PopUpPage
+import com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardEventViewPager.DashBoardEventDetailsFragment
+import com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardEventViewPager.DashBoardEventViewPagerFragment
+import com.kanavdawra.pawmars.InterFace.*
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -74,23 +72,23 @@ class DashBoardActivity : AppCompatActivity() {
 
     fun navigationInterFace() {
         val dashBoardNavigationInterFace = object : DashBoardNavigationInterFace {
-            override fun home() {
+            override fun Home() {
                 home()
             }
 
-            override fun contacts() {
+            override fun Contacts() {
                 contacts()
             }
 
-            override fun events() {
+            override fun Events() {
                 events()
             }
 
-            override fun verify() {
+            override fun Verify() {
                 verify()
             }
 
-            override fun history() {
+            override fun History() {
                 history()
             }
 
@@ -369,7 +367,6 @@ class DashBoardActivity : AppCompatActivity() {
         DashBoardUtility().dismiss(this)
     }
 
-
     fun syncContacts() {
         syncLocalContacts = true
 //        AsyncTask.execute {
@@ -414,7 +411,7 @@ class DashBoardActivity : AppCompatActivity() {
     var dashBoardCreateContactListFragment: DashBoardCreateContactListFragment? = null
     var dashBoardContactListDetailsFragment: DashBoardContactListDetailsFragment? = null
     var dashBoardAddEventFragment: DashBoardAddEventFragment? = null
-
+    var dashBoardEventViewPagerFragment: DashBoardEventViewPagerFragment?=null
     fun popUpFragment() {
         val popUpPage = object : PopUpPage {
             override fun create(fragment: String) {
@@ -437,6 +434,10 @@ class DashBoardActivity : AppCompatActivity() {
                     dashBoardAddEventFragment= DashBoardAddEventFragment()
                     supportFragmentManager.beginTransaction().add(R.id.popup_layout,dashBoardAddEventFragment).commit()
                 }
+                if (fragment == "EventViewPager") {
+                    dashBoardEventViewPagerFragment= DashBoardEventViewPagerFragment()
+                    supportFragmentManager.beginTransaction().add(R.id.popup_layout,dashBoardEventViewPagerFragment).commit()
+                }
                 DashBoard_ToolBar_Layout.visibility=View.GONE
 
             }
@@ -457,12 +458,15 @@ class DashBoardActivity : AppCompatActivity() {
                 if (fragment == "AddEvent") {
                     supportFragmentManager.beginTransaction().remove(dashBoardAddEventFragment).commit()
                 }
-
+                if (fragment == "EventViewPager") {
+                    supportFragmentManager.beginTransaction().remove(dashBoardEventViewPagerFragment).commit()
+                }
             }
 
         }
         registerReceiver(PopUpFragmentReceiver(popUpPage), IntentFilter("PopUp"))
     }
+
 
     class SyncContacts(val context: Context) : AsyncTask<Void, Void, Int>() {
         override fun doInBackground(vararg p0: Void?): Int {

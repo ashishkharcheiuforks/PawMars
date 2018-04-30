@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/White"
+    tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardEventViewPager.DashBoardEventSendSmsAndEmailFragment">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/DashBoard_Event_Send_Sms_Email_ToolBar_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/Blue"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/DashBoard_Event_Send_Sms_Email_Text_EventName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Publish Event"
+                    android:textColor="@color/White"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_Send_Sms_Email_Text_Back"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@mipmap/arrow" />
+
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_Send_Sms_Email_Text_Next"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:padding="10dp"
+                    android:rotation="180"
+                    android:src="@mipmap/arrow"
+                    android:visibility="gone" />
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <EditText
+        android:id="@+id/DashBoard_Event_Send_Sms_Email_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_margin="10dp"
+        android:gravity="start|top"
+        android:layout_below="@id/DashBoard_Event_Send_Sms_Email_ToolBar_Layout"
+        android:inputType="textMultiLine"
+        android:maxLines="5"
+        android:minLines="5" />
+
+    <Button
+        android:id="@+id/DashBoard_Event_Send_Sms_Email_Publish"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/DashBoard_Event_Send_Sms_Email_EditText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/Green"
+        android:backgroundTint="@color/Green"
+        android:text="Publish"
+        android:textColor="@color/White"
+        android:textSize="12sp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/DashBoard_Event_Send_Sms_Email_RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/DashBoard_Event_Send_Sms_Email_EditText"/>
+</RelativeLayout>

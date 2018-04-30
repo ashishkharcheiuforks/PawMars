@@ -1,0 +1,92 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardEventViewPager.DashBoardEventSelectSIMAndEmailFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/DashBoard_Event_EventCode_ToolBar_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/Blue"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/DashBoard_Event_EventCode_EventName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Event Code"
+                    android:textColor="@color/White"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_EventCode_Back"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@mipmap/arrow" />
+
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_EventCode_Share"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_toStartOf="@id/DashBoard_Event_EventCode_Save"
+                    android:padding="10dp"
+                    android:src="@mipmap/share" />
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_EventCode_Save"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:padding="10dp"
+                    android:src="@mipmap/download" />
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You are all set for the Event"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textColor="@color/Black"
+        android:layout_below="@id/DashBoard_Event_EventCode_ToolBar_Layout"/>
+
+    <ImageView
+        android:id="@+id/DashBoard_Event_EventCode_EventCode"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/DashBoard_Event_EventCode_ToolBar_Layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/DashBoard_Event_EventCode_EventCode"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Share this code with you Doorman for restricted entry."
+        android:textColor="@color/Blue"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+</RelativeLayout>

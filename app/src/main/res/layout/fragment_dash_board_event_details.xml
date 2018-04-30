@@ -1,0 +1,450 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/Blue">
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_Details_Back"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:padding="10dp"
+                    android:src="@mipmap/arrow" />
+
+                <me.grantland.widget.AutofitTextView
+                    android:id="@+id/DashBoard_Event_Details_Event_Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toEndOf="@id/DashBoard_Event_Details_Back"
+                    android:layout_toStartOf="@id/DashBoard_Event_Details_Delete"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:shadowRadius="4"
+                    android:text="Event Name"
+                    android:textColor="@color/White"
+                    android:textSize="23dp" />
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_Details_Delete"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_toStartOf="@id/DashBoard_Event_Details_Edit"
+                    android:src="@mipmap/ic_trash_can" />
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_Details_Edit"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_toStartOf="@id/DashBoard_Event_Details_Next"
+                    android:src="@mipmap/ic_pencil" />
+
+                <ImageView
+                    android:id="@+id/DashBoard_Event_Details_Next"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:padding="10dp"
+                    android:rotation="180"
+                    android:src="@mipmap/arrow" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/White"
+            android:orientation="vertical"
+            tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardEventViewPager.DashBoardEventDetailsFragment">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/DashBoard_Event_Details_ImagesViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/Grey"/>
+
+                <com.rd.PageIndicatorView
+                    android:id="@+id/DashBoard_Event_Details_ImagesViewPager_Indicators"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:paddingBottom="10dp"
+                    app:piv_animationType="scale"
+                    app:piv_dynamicCount="true"
+                    app:piv_interactiveAnimation="true"
+                    app:piv_selectedColor="@color/Amber"
+                    app:piv_unselectedColor="@color/White"
+                    app:piv_viewPager="@id/DashBoard_Event_Details_ImagesViewPager" />
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/Grey" />
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/DashBoard_Event_Details_Contact_Display_Layout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <RelativeLayout
+                    android:id="@+id/DashBoard_Event_Details_Contact_Layout1"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintEnd_toStartOf="@+id/DashBoard_Event_Details_Contact_Layout2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/DashBoard_Event_Details_Contact_Image1"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:padding="10dp"
+                        android:src="@color/Red" />
+
+                    <me.grantland.widget.AutofitTextView
+                        android:id="@+id/DashBoard_Event_Details_Contact_TextView1"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/White"
+                        android:text="KD"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/DashBoard_Event_Details_Contact_Layout2"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintEnd_toStartOf="@+id/DashBoard_Event_Details_Contact_Layout3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/DashBoard_Event_Details_Contact_Layout1">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/DashBoard_Event_Details_Contact_Image2"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:padding="10dp" />
+
+                    <me.grantland.widget.AutofitTextView
+                        android:id="@+id/DashBoard_Event_Details_Contact_TextView2"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:textColor="@color/White"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:padding="10dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/DashBoard_Event_Details_Contact_Layout3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintEnd_toStartOf="@+id/DashBoard_Event_Details_Contact_Layout4"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/DashBoard_Event_Details_Contact_Layout2">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/DashBoard_Event_Details_Contact_Image3"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:padding="10dp" />
+
+                    <me.grantland.widget.AutofitTextView
+                        android:id="@+id/DashBoard_Event_Details_Contact_TextView3"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:textColor="@color/White"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:padding="10dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/DashBoard_Event_Details_Contact_Layout4"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintEnd_toStartOf="@+id/DashBoard_Event_Details_Contact_RemainingCount"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/DashBoard_Event_Details_Contact_Layout3">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/DashBoard_Event_Details_Contact_Image4"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:padding="10dp" />
+
+                    <me.grantland.widget.AutofitTextView
+                        android:id="@+id/DashBoard_Event_Details_Contact_TextView4"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:textColor="@color/White"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:padding="10dp" />
+                </RelativeLayout>
+
+
+                <me.grantland.widget.AutofitTextView
+                    android:id="@+id/DashBoard_Event_Details_Contact_RemainingCount"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/contacts_event_details"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toStartOf="@+id/DashBoard_Event_Details_Contact_Expand"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/DashBoard_Event_Details_Contact_Layout4" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/DashBoard_Event_Details_Contact_Expand"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:padding="10dp"
+                    android:rotation="180"
+                    android:src="@mipmap/back"
+                    app:civ_circle_background_color="@color/White"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/DashBoard_Event_Details_Contact_RemainingCount" />
+            </android.support.constraint.ConstraintLayout>
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/DashBoard_Event_Details_Expandable_Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:el_duration="1000"
+                app:el_expanded="false"
+                app:el_parallax="0.5">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/DashBoard_Event_Details_Contact_Expand_RecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/DashBoard_Event_Details_Contact_Collapse"
+                        android:layout_width="68dp"
+                        android:layout_height="70dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="130dp"
+                        android:padding="10dp"
+                        android:paddingEnd="3dp"
+                        android:src="@mipmap/back"
+                        app:civ_circle_background_color="@color/White" />
+                </RelativeLayout>
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/Grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <me.grantland.widget.AutofitTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date:"
+                    android:textColor="@color/Black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <me.grantland.widget.AutofitTextView
+                    android:id="@+id/DashBoard_Event_Details_Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="20sp"
+                    android:maxLines="1"
+                    android:text="sdfgsdfgsdfgdfgdfgdfgdfgdfgdfgdfgdfg"
+                    android:textColor="@color/Grey"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <me.grantland.widget.AutofitTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time:"
+                    android:textColor="@color/Black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <me.grantland.widget.AutofitTextView
+                    android:id="@+id/DashBoard_Event_Details_Time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="18dp"
+                    android:maxLines="1"
+                    android:text="ssdfsdsdfsdfsdfsdfsdfsdf"
+                    android:textColor="@color/Grey"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <me.grantland.widget.AutofitTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address:"
+                    android:textColor="@color/Black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <me.grantland.widget.AutofitTextView
+                    android:id="@+id/DashBoard_Event_Details_PlaceName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="18dp"
+                    android:maxLines="1"
+                    android:text="ssdfsdsdfsdfsdfsdfsdfsdf"
+                    android:textColor="@color/Grey"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/DashBoard_Event_Details_AddressLine1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="89dp"
+                android:maxLines="1"
+                android:text="ssdfsdsdfsdfsdfsdfsdfsdf"
+                android:textColor="@color/Grey"
+                android:textSize="15sp" />
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/DashBoard_Event_Details_AddressLine2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="89dp"
+                android:maxLines="1"
+                android:text="ssdfsdsdfsdfsdfsdfsdfsdf"
+                android:textColor="@color/Grey"
+                android:textSize="15sp" />
+
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/DashBoard_Event_Details_City_PinCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="89dp"
+                android:maxLines="1"
+                android:text="ssdfsdsdfsdfsdfsdfsdfsdf"
+                android:textColor="@color/Grey"
+                android:textSize="15sp" />
+
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/DashBoard_Event_Details_Country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="89dp"
+                android:maxLines="1"
+                android:text="ssdfsdsdfsdfsdfsdfsdfsdf"
+                android:textColor="@color/Grey"
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/Grey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="Description"
+                android:textColor="@color/Black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/DashBoard_Event_Details_Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:padding="5dp"
+                android:text="DesrCription" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+
+

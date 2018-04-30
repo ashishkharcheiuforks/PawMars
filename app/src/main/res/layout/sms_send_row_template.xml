@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <me.grantland.widget.AutofitTextView
+        android:id="@+id/SMS_send_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toLeftOf="@id/SMS_send_Email_Loader"
+        android:maxLines="1"
+        android:text="Name"
+        android:textSize="18dp" />
+
+    <com.tuyenmonkey.mkloader.MKLoader
+        android:id="@+id/SMS_send_Email_Loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="27dp"
+        android:layout_toStartOf="@+id/SMS_send_SMS_Loader"
+        android:visibility="gone"
+        app:mk_color="@color/Blue"
+        app:mk_type="Worm" />
+
+    <net.igenius.customcheckbox.CustomCheckBox
+        android:id="@+id/SMS_send_Email_CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="35dp"
+        android:layout_toStartOf="@+id/SMS_send_SMS_Loader"
+        android:visibility="gone"
+        app:color_tick="@color/Blue"
+        app:duration="200" />
+
+    <com.tuyenmonkey.mkloader.MKLoader
+        android:id="@+id/SMS_send_SMS_Loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="10dp"
+        android:visibility="gone"
+        app:mk_color="@color/Green"
+        app:mk_type="FishSpinner" />
+
+    <net.igenius.customcheckbox.CustomCheckBox
+        android:id="@+id/SMS_send_SMS_CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="18dp"
+        android:layout_toStartOf="@+id/SMS_send_SMS_Loader"
+        android:visibility="gone"
+        app:color_tick="@color/Green"
+        app:duration="200" />
+
+</RelativeLayout>
