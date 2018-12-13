@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Message
+import android.widget.Toast
 import java.io.*
 
 class Utility(val context: Context) {
@@ -67,6 +69,10 @@ class Utility(val context: Context) {
 
         val file=File(mypath.toURI())
         file.canonicalFile.delete()
+    }
+
+    fun toast(message: String,duration:Int){
+        Toast.makeText(context,message,duration).show()
     }
 
 }

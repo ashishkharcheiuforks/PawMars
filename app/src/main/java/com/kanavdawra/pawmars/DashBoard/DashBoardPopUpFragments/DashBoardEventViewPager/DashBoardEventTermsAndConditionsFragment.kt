@@ -14,6 +14,9 @@ import com.kanavdawra.pawmars.PawMars
 
 import com.kanavdawra.pawmars.R
 import kotlinx.android.synthetic.main.fragment_dash_board_event_terms_and_conditions.*
+import android.text.method.ScrollingMovementMethod
+
+
 
 
 class DashBoardEventTermsAndConditionsFragment : Fragment() {
@@ -27,6 +30,7 @@ class DashBoardEventTermsAndConditionsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         clickListners()
+        DashBoard_Event_TaC_Terms_And_Conditions.movementMethod = ScrollingMovementMethod()
     }
 
     fun clickListners() {
@@ -40,8 +44,8 @@ class DashBoardEventTermsAndConditionsFragment : Fragment() {
                         .setIcon(R.mipmap.save)
                         .setPositiveButton("Save") { dialogInterface, i ->
                             if (PawMarsDataBase().Events(activity!!, eventName)){
-                                activity!!.getSharedPreferences("Event_${eventName}_Details", 0).edit().putInt("FinalSave", 3).apply()
-                                DashBoardEventsUtility(activity!!).pagerPositionChange(3)
+                                activity!!.getSharedPreferences("Event_${eventName}_Details", 0).edit().putInt("Next", 3).apply()
+                                DashBoardEventsUtility(activity!!).pagerPositionChange(activity!!.getSharedPreferences("Event_${eventName}_Details", 0).getInt("Next", 3))
                             }
                             else{
                                 DashBoardUtility().snackBar(activity!!,"Every selected contact must be edited with area code.",R.color.Red,R.color.White)

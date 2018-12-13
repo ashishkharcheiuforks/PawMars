@@ -17,6 +17,7 @@ import android.view.ViewGroup
 import com.developers.imagezipper.ImageZipper
 import com.kanavdawra.pawmars.*
 import com.kanavdawra.pawmars.Adapters.AddEventContactListAdaptor
+import com.kanavdawra.pawmars.Constants.currUser
 import com.kanavdawra.pawmars.InterFace.AddEventInterFace
 import com.kanavdawra.pawmars.Modals.ContactList
 import com.nguyenhoanglam.imagepicker.model.Config
@@ -370,16 +371,26 @@ class DashBoardAddEventFragment : Fragment() {
     }
 
     fun saveData() {
-        val eventName = DashBoard_Add_Event_EventName.text.toString()
-        val placeName = DashBoard_Add_Event_PlaceName.text.toString()
-        val addressLine1 = DashBoard_Add_Event_AddressLine1.text.toString()
-        val addressLine2 = DashBoard_Add_Event_AddressLine2.text.toString()
+        var eventName = DashBoard_Add_Event_EventName.text.toString()
+        var placeName = DashBoard_Add_Event_PlaceName.text.toString()
+        var addressLine1 = DashBoard_Add_Event_AddressLine1.text.toString()
+        var addressLine2 = DashBoard_Add_Event_AddressLine2.text.toString()
         val city = DashBoard_Add_Event_City.text.toString()
         val country = DashBoard_Add_Event_CountryPicker.selectedCountryName
         val pinCode = DashBoard_Add_Event_PinCode.text.toString()
-        val description = DashBoard_Add_Event_Description.text.toString()
+        var description = DashBoard_Add_Event_Description.text.toString()
         val contactIds = fetchContactIDs(contactListAdaptor!!.selectedList)
+
+        eventName=eventName.replace("'","`")
+        placeName=placeName.replace("'","`")
+        addressLine1=addressLine1.replace("'","`")
+        addressLine2=addressLine2.replace("'","`")
+        description=description.replace("'","`")
+        println(eventName)
+
         val checkValidation = validation(eventName, placeName, city, pinCode)
+
+
         if (checkValidation) {
             createSharedPrefrence(eventName, placeName, addressLine1, addressLine2, city, country, pinCode, description, contactIds)
             val databaseValue = ContentValues()
@@ -432,7 +443,8 @@ class DashBoardAddEventFragment : Fragment() {
         if (eventName == "") {
             DashBoard_Add_Event_EventName_Layout.error = "Event Name cannot be left empty."
             bool = false
-        } else {
+        }
+        else {
             DashBoard_Add_Event_EventName_Layout.error = ""
         }
         if (placeName == "") {
@@ -463,6 +475,7 @@ class DashBoardAddEventFragment : Fragment() {
             DashBoardUtility().snackBar(activity!!, "You have select at least one Contact List.", R.color.Red, R.color.White)
             bool = false
         }
+
         val checkEvent=DataBase(activity!!).readableDatabase.rawQuery("SELECT * FROM eventList WHERE name='$eventName'",null)
         checkEvent.moveToFirst()
         try {
@@ -496,6 +509,7 @@ class DashBoardAddEventFragment : Fragment() {
                 .putInt("Minute", Minute)
                 .putString("AM_PM", Am_pm)
                 .putString("TimeZone", findTimeZone())
+        activity!!.getSharedPreferences("Event_${eventName}_Details", 0).edit().putString("Name", currUser().displayName).apply()
         var i = 1
         for (contact in contactsIds) {
             editor.putString("data$i", contact)
@@ -572,5 +586,6 @@ class DashBoardAddEventFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
     }
+
 
 }

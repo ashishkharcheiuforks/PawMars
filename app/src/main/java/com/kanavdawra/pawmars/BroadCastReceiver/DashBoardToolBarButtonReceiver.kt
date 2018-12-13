@@ -16,5 +16,14 @@ class DashBoardToolBarButtonReceiver(val toolBarButtonsInterFace: ToolBarButtons
         if (intent.getStringExtra("button") == "cancel") {
             toolBarButtonsInterFace.cancel()
         }
+        if (intent.getStringExtra("button") == "inviteesList") {
+            toolBarButtonsInterFace.inviteesList()
+        }
+        if (intent.getStringExtra("button") == "selectEvent") {
+            toolBarButtonsInterFace.selectEvent()
+        }
+        if (intent.getStringExtra("button") == "flash") {
+            toolBarButtonsInterFace.flash()
+        }
     }
 }

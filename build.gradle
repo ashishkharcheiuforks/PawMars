@@ -3,8 +3,8 @@
 buildscript {
     ext.kotlin_version = '1.2.21'
     repositories {
-        google()
-        jcenter()
+
+        maven {url 'http://192.168.0.221:8081/repository/maven-public/'}
         maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
 
     }
@@ -17,10 +17,10 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
-        jcenter()
-        maven { url "https://maven.google.com" }
-        maven { url "https://jitpack.io" }
+
+        maven {url 'http://192.168.0.221:8081/repository/maven-public/'}
+//        maven { url "https://maven.google.com" }
+//        maven { url "https://jitpack.io" }
         mavenCentral()
     }
 }

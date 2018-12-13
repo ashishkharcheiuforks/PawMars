@@ -1,23 +1,71 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardFragments.DashBoardEventsFragment">
 
+    <RelativeLayout
+        android:id="@+id/dashboard_events_Tabs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/dashboard_events_History"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/half_rounded_view_layout_left_white"
+            android:gravity="center"
+            android:text="History"
+            android:textColor="@color/Blue"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dashboard_events_All"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/dashboard_events_History"
+            android:background="@color/Blue"
+            android:gravity="center"
+            android:text="All"
+
+            android:textColor="@color/White"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dashboard_events_Upcoming"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_toEndOf="@id/dashboard_events_All"
+            android:background="@drawable/half_rounded_view_layout_right_white"
+            android:gravity="center"
+            android:text="Upcoming"
+            android:textColor="@color/Blue"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/dashboard_events_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/dashboard_events_Tabs"
+        android:layout_marginTop="20dp" />
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/dashboard_events_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginBottom="30dp"
         android:layout_marginEnd="10dp"
         android:src="@drawable/fab_add"
         app:fab_colorNormal="@color/Blue"
         app:fab_colorRipple="@color/Amber" />
-</FrameLayout>
+</RelativeLayout>

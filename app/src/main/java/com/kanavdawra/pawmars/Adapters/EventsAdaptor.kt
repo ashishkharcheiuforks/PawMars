@@ -42,6 +42,11 @@ class EventsAdaptor(val context: Context, var eventsList: ArrayList<Event>) : Re
             }
         } catch (e: Exception) {
         }
+        if(eventsList[position].tab=="H"){
+            holder.date_time_modal.text="Was on"
+        }else{
+            holder.date_time_modal.text="Is on"
+        }
     }
 
     fun dateTime(position: Int): String {
@@ -178,12 +183,12 @@ class EventsAdaptor(val context: Context, var eventsList: ArrayList<Event>) : Re
         var place_city = view.findViewById<TextView>(R.id.event_layout_place_city)
         var image = view.findViewById<ImageView>(R.id.event_layout_image)
         var layout = view.findViewById<CardView>(R.id.event_layout_view)
-
-        init {
-            layout.setOnClickListener {
-                eventName = eventsList[adapterPosition].eventName
-                PopUpFragmnent(context).create("EventViewPager")
-            }
-        }
+        var date_time_modal =view.findViewById<TextView>(R.id.event_layout_date_time_Modal)
+                init {
+                    layout.setOnClickListener {
+                        eventName = eventsList[adapterPosition].eventName
+                        PopUpFragmnent(context).create("EventViewPager")
+                    }
+                }
     }
 }

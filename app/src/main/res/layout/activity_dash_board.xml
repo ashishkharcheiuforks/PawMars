@@ -10,46 +10,78 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/DashBoard_ToolBar_Layout"
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/DashBoard_ToolBar"
             android:layout_width="match_parent"
-            android:layout_height="55dp">
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:contentInsetStart="0dp">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/DashBoard_ToolBar"
+            <RelativeLayout
+                android:id="@+id/DashBoard_ToolBar_add_cancel"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                app:contentInsetStart="0dp">
+                android:layout_height="match_parent"
+                android:visibility="gone">
 
-                <RelativeLayout
-                    android:id="@+id/DashBoard_ToolBar_add_cancel"
+                <ImageView
+                    android:id="@+id/DashBoard_ToolBar_add"
+                    android:layout_width="50dp"
+                    android:layout_height="50sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/DashBoard_ToolBar_cancel"
+                    android:background="@color/colorPrimary"
+                    android:src="@mipmap/ic_plus" />
+
+                <ImageView
+
+                    android:id="@+id/DashBoard_ToolBar_cancel"
+                    android:layout_width="50dp"
+                    android:layout_height="50sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/colorPrimary"
+                    android:src="@mipmap/ic_cross" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/DashBoard_ToolBar_Verify"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/DashBoard_ToolBar_EventName"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone">
+                    android:textColor="@color/White"
+                    android:textSize="18sp"
+                    android:text="---"
+                    android:layout_toStartOf="@id/DashBoard_ToolBar_Invites_List"
+                    android:layout_height="50dp"
+                    android:gravity="center"/>
 
-                    <ImageView
-                        android:id="@+id/DashBoard_ToolBar_add"
-                        android:layout_width="50dp"
-                        android:layout_height="50sp"
-                        android:layout_alignParentTop="true"
-                        android:layout_toStartOf="@+id/DashBoard_ToolBar_cancel"
-                        android:background="@color/colorPrimary"
-                        android:src="@mipmap/ic_plus" />
+                <ImageView
+                    android:id="@+id/DashBoard_ToolBar_Invites_List"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/DashBoard_ToolBar_Flash"
+                    android:background="@color/Black"
+                    android:padding="8dp"
+                    android:src="@mipmap/invitees_list" />
 
-                    <ImageView
+                <ImageView
 
-                        android:id="@+id/DashBoard_ToolBar_cancel"
-                        android:layout_width="50dp"
-                        android:layout_height="50sp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="10dp"
-                        android:background="@color/colorPrimary"
-                        android:src="@mipmap/ic_cross" />
-                </RelativeLayout>
+                    android:id="@+id/DashBoard_ToolBar_Flash"
+                    android:layout_width="40dp"
+                    android:layout_height="50sp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/Black"
+                    android:padding="8dp"
+                    android:src="@mipmap/flash_off" />
+            </RelativeLayout>
 
-            </android.support.v7.widget.Toolbar>
-        </android.support.design.widget.AppBarLayout>
+        </android.support.v7.widget.Toolbar>
 
         <FrameLayout
             android:id="@+id/DashBoardFragmentFrameLayout"
@@ -109,12 +141,12 @@
                     android:id="@+id/DashBoardLoaderText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="8dp"
                     android:text="Loading ..."
-                    android:layout_gravity="center"
                     android:textColor="@color/White"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

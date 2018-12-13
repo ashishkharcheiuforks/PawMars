@@ -1,11 +1,8 @@
 package com.kanavdawra.pawmars.Adapters
 
-import android.os.Build
-import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import android.view.ViewGroup
 import com.kanavdawra.pawmars.DashBoard.DashBoardPopUpFragments.DashBoardEventViewPager.*
 
 class EventViewPagerAdaptor(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
@@ -14,7 +11,7 @@ class EventViewPagerAdaptor(fragmentManager: FragmentManager) : FragmentPagerAda
     var dashBoardEventSmSTextFragment: DashBoardEventSmSTextFragment? = null
     var dashBoardEventEmailTextFragment: DashBaordEventEmailTextFragment? = null
     var dashBoardEventTermsAndConditionsFragment: DashBoardEventTermsAndConditionsFragment? = null
-    var dashBoardEventSelectSIMAndEmailFragment: DashBoardEventSelectSIMAndEmailFragment? = null
+    var dashBoardEventQrCodeFragment: DashBoardEventQrCodeFragment? = null
     override fun getItem(position: Int): Fragment {
         eventDetailsFragment()
         eventEditFragment()
@@ -33,14 +30,14 @@ class EventViewPagerAdaptor(fragmentManager: FragmentManager) : FragmentPagerAda
         } else if (position == 4) {
             return dashBoardEventEmailTextFragment!!
         }else{
-            return dashBoardEventSelectSIMAndEmailFragment!!
+            return dashBoardEventQrCodeFragment!!
         }
 
     }
 
 
     override fun getCount(): Int {
-        return 7
+        return 6
     }
 
     fun eventDetailsFragment() {
@@ -64,7 +61,7 @@ class EventViewPagerAdaptor(fragmentManager: FragmentManager) : FragmentPagerAda
     }
 
     fun eventMasterCodeFragment() {
-        dashBoardEventSelectSIMAndEmailFragment = DashBoardEventSelectSIMAndEmailFragment()
+        dashBoardEventQrCodeFragment = DashBoardEventQrCodeFragment()
     }
 
 }

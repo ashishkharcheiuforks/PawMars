@@ -50,6 +50,7 @@ class DashBoardEventDetailsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        editButton()
         DashBoard_Event_Details_Event_Name.text = eventName
         fetchData()
         clickListners()
@@ -89,7 +90,8 @@ class DashBoardEventDetailsFragment : Fragment() {
         }
 
         DashBoard_Event_Details_Next.setOnClickListener {
-            DashBoardEventsUtility(activity!!).pagerPositionChange(2)
+
+            DashBoardEventsUtility(activity!!).pagerPositionChange( activity!!.getSharedPreferences("Event_${eventName}_Details",0).getInt("Next",2))
         }
 
     }
@@ -427,5 +429,10 @@ class DashBoardEventDetailsFragment : Fragment() {
         val text = name.length
         println(text)
         return Color.parseColor(imageColor[text % 10])
+    }
+
+    fun editButton(){
+        if(activity!!.getSharedPreferences("Event_${Constants.eventName}_Details", 0).getInt("Next",1)>=3)
+     DashBoard_Event_Details_Edit.visibility=View.GONE
     }
 }

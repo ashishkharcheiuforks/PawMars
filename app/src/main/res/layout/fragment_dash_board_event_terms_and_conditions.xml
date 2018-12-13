@@ -66,13 +66,21 @@
     </android.support.design.widget.AppBarLayout>
 
     <RelativeLayout
-        android:id="@+id/DashBoard_Event_TaC_Terms_And_Conditions"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/DashBoard_Event_TaC_TextView1"
         android:layout_below="@id/DashBoard_Event_TaC_ToolBar_Layout"
-        android:layout_margin="10dp"
-        android:background="@color/Red" />
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/DashBoard_Event_TaC_Terms_And_Conditions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLines="100"
+            android:scrollbars="vertical"
+            android:text="@string/TaC" />
+    </RelativeLayout>
 
     <CheckBox
         android:id="@+id/DashBoard_Event_TaC_CheckBox"

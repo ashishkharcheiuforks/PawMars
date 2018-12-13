@@ -19,5 +19,9 @@ class DashBoardToolBarReciever(val dashBoardToolBarInterface:DashBoardToolBarInt
         {
             dashBoardToolBarInterface.addCancel()
         }
+        if(intent.getStringExtra("toolbar")=="verify")
+        {
+            dashBoardToolBarInterface.verify()
+        }
     }
 }

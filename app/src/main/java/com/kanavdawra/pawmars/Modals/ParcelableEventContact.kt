@@ -9,6 +9,7 @@ class ParcelableEventContact() : Parcelable {
     var emailId = ""
     var phnoBool = 0
     var emailBool = 0
+    var entryPass=""
 
     constructor(parcel: Parcel) : this() {
         name = parcel.readString()
@@ -16,6 +17,7 @@ class ParcelableEventContact() : Parcelable {
         emailId = parcel.readString()
         phnoBool = parcel.readInt()
         emailBool = parcel.readInt()
+        entryPass=parcel.readString()
     }
 
     fun ParcelableEventContact(name: String, phoneNo: String, emailId: String, phnoBool: Int, emailBool: Int) {
@@ -24,6 +26,7 @@ class ParcelableEventContact() : Parcelable {
         this.emailId=emailId
         this.phnoBool=phnoBool
         this.emailBool=emailBool
+        this.entryPass=entryPass
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -32,6 +35,7 @@ class ParcelableEventContact() : Parcelable {
         parcel.writeString(emailId)
         parcel.writeInt(phnoBool)
         parcel.writeInt(emailBool)
+        parcel.writeString(entryPass)
     }
 
     override fun describeContents(): Int {

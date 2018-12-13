@@ -37,7 +37,7 @@ class OnBoardAuthenticationLogInFragment : Fragment() {
         val options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .requestId()
-                .requestIdToken("42066303682-0q2qfiqhqnqfd27110o3fi6rgvc701ut.apps.googleusercontent.com")
+                .requestIdToken("792871887588-ck6038bb2q7lhcqf1lpffb3go2f085af.apps.googleusercontent.com")
                 .requestProfile()
                 .build()
 
@@ -136,19 +136,19 @@ class OnBoardAuthenticationLogInFragment : Fragment() {
                 emailSnackbar.putExtra("task", "snackbar")
                 emailSnackbar.putExtra("message", "Sign In failed.")
                 activity!!.sendBroadcast(emailSnackbar)
+                println("g+: $e")
             }
 
         }
 
     }
+
     fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
-        println("firebaseAuthWithGoogle:")
 
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
         firebaseAuth.signInWithCredential(credential)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        println("signInWithCredential:success")
                         fireBaseCurrentUser = firebaseAuth.currentUser
                         val email = fireBaseCurrentUser!!.email
                         val userName = email!!.replace('.', '_', false)

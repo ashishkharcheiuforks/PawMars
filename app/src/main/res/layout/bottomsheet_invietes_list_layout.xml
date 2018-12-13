@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White">
+
+    <RelativeLayout
+        android:id="@+id/BottomSheet_InviteesList_Title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <me.grantland.widget.AutofitTextView
+            android:id="@+id/BottomSheet_InviteesList_Name_Title"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:background="@color/Black"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:text="Invitee Name"
+            android:textColor="@color/White"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/BottomSheet_InviteesList_Name_Title">
+
+            <View
+                android:id="@+id/BottomSheet_InviteesList_V1_Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/BottomSheet_InviteesList_In_Title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/BottomSheet_InviteesList_V1_Title"
+                android:background="@color/Blue"
+                android:gravity="center"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:text="In Time"
+                android:textColor="@color/White"
+                android:textSize="15sp" />
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/BottomSheet_InviteesList_Out_Title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/BottomSheet_InviteesList_V1_Title"
+                android:background="@color/Green"
+                android:gravity="center"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:text="Out Time"
+                android:textColor="@color/White"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/BottomSheet_InviteesList_RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_below="@id/BottomSheet_InviteesList_Title"
+        android:layout_height="match_parent" />
+</RelativeLayout>

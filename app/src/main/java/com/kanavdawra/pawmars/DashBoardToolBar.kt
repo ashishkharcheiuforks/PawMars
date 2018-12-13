@@ -15,6 +15,10 @@ class DashBoardToolBar(val context: Context) {
         context.sendBroadcast(Intent("DashBoardToolBar").putExtra("toolbar","addCancel"))
 
     }
+    fun Verify(){
+        context.sendBroadcast(Intent("DashBoardToolBar").putExtra("toolbar","verify"))
+
+    }
     class DashBoardToolBarButtons(val context: Context){
         fun add(){
             context.sendBroadcast(Intent("DashBoardToolBarButton").putExtra("button","add"))
@@ -22,5 +26,15 @@ class DashBoardToolBar(val context: Context) {
         fun cancel(){
             context.sendBroadcast(Intent("DashBoardToolBarButton").putExtra("button","cancel"))
         }
+        fun inviteesList(){
+            context.sendBroadcast(Intent("DashBoardToolBarButton").putExtra("button","inviteesList"))
+        }
+        fun selectEvent(){
+            context.sendBroadcast(Intent("DashBoardToolBarButton").putExtra("button","selectEvent"))
+        }
+        fun flash(){
+            context.sendBroadcast(Intent("DashBoardToolBarButton").putExtra("button","flash"))
+        }
+
     }
 }

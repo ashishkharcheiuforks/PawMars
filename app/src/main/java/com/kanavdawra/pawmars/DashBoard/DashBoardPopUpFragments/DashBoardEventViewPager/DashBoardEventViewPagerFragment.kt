@@ -11,14 +11,12 @@ import com.kanavdawra.pawmars.Adapters.EventViewPagerAdaptor
 import com.kanavdawra.pawmars.BroadCastReceiver.EventViewPagerReceiver
 import com.kanavdawra.pawmars.Constants.eventName
 import com.kanavdawra.pawmars.Constants.eventViewPagerReceiver
-import com.kanavdawra.pawmars.DashBoardEventsUtility
-import com.kanavdawra.pawmars.InterFace.DashBoard
 import com.kanavdawra.pawmars.InterFace.EventViewPagerInterFace
-
 import com.kanavdawra.pawmars.R
 import kotlinx.android.synthetic.main.fragment_dash_board_event_view_pager.*
 
-class DashBoardEventViewPagerFragment : Fragment() {
+
+class DashBoardEventViewPagerFragment() : Fragment() {
 
     var eventViewPagerAdaptor: EventViewPagerAdaptor? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -35,25 +33,32 @@ class DashBoardEventViewPagerFragment : Fragment() {
     fun setAdaptor() {
         eventViewPagerAdaptor = EventViewPagerAdaptor(childFragmentManager)
         DashBoard_Event_ViewPager.adapter = eventViewPagerAdaptor
-        if(activity!!.getSharedPreferences("Event_${eventName}_Details",0).getInt("FinalSave",1)==5){
+        if (activity!!.getSharedPreferences("Event_${eventName}_Details", 0).getInt("FinalSave", 1) == 5) {
             DashBoard_Event_ViewPager.setCurrentItem(5, false)
-        }
-        else{
+        } else {
             DashBoard_Event_ViewPager.setCurrentItem(1, false)
         }
 
     }
 
+    var position = 1
+
     fun listener() {
+        val viewPager=activity!!.findViewById<ViewPager>(R.id.DashBoard_Event_ViewPager)
+       viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+            }
 
-        DashBoard_Event_ViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {}
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            }
 
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+            override fun onPageSelected(position: Int) {
+                viewPager.setCurrentItem(this@DashBoardEventViewPagerFragment.position, false)
+            }
 
-            override fun onPageSelected(position: Int) {}
 
         })
+
         val eventViewPager = object : EventViewPagerInterFace {
 
             override fun notifyDataSetChanged(position: Int) {
@@ -69,21 +74,25 @@ class DashBoardEventViewPagerFragment : Fragment() {
 
             override fun pageChange(position: Int) {
                 try {
-                    DashBoard_Event_ViewPager.setCurrentItem(position, true)
+                    this@DashBoardEventViewPagerFragment.position = position
+                    DashBoard_Event_ViewPager.setCurrentItem(position, false)
                 } catch (e: Exception) {
-                    DashBoard_Event_ViewPager.setCurrentItem(1, true)
+                    DashBoard_Event_ViewPager.setCurrentItem(1, false)
                 }
             }
 
         }
-        val receiver=EventViewPagerReceiver(eventViewPager)
-        eventViewPagerReceiver=receiver
+        val receiver = EventViewPagerReceiver(eventViewPager)
+        eventViewPagerReceiver = receiver
         activity!!.registerReceiver(receiver, IntentFilter("EventViewPager"))
 
     }
 
     override fun onPause() {
-        activity!!.unregisterReceiver(eventViewPagerReceiver)
+        try {
+            activity!!.unregisterReceiver(eventViewPagerReceiver)
+        } catch (e: Exception) {
+        }
         super.onPause()
     }
 
@@ -91,4 +100,5 @@ class DashBoardEventViewPagerFragment : Fragment() {
         activity!!.registerReceiver(eventViewPagerReceiver, IntentFilter("EventViewPager"))
         super.onResume()
     }
+
 }

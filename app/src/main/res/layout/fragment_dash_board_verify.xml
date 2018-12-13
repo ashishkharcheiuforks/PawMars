@@ -1,14 +1,28 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Black"
     tools:context="com.kanavdawra.pawmars.DashBoard.DashBoardFragments.DashBoardVerifyFragment">
 
+    <com.flipboard.bottomsheet.BottomSheetLayout
+        android:id="@+id/DashBoard_Verify_BottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <me.dm7.barcodescanner.zxing.ZXingScannerView
+            android:id="@+id/DashBoard_Verify_Scanner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <ImageView
+                android:id="@+id/DashBoard_Verify_Flash"
+                android:src="@mipmap/flash_off"
+                android:padding="10dp"
+                android:layout_gravity="end"
+                android:layout_width="50dp"
+                android:layout_height="70dp" />
+        </me.dm7.barcodescanner.zxing.ZXingScannerView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:layout_gravity="center"
-        android:text="verify"/>
-</FrameLayout>
+
+    </com.flipboard.bottomsheet.BottomSheetLayout>
+</RelativeLayout>

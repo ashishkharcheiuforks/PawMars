@@ -10,6 +10,7 @@ import android.app.Activity
 import android.content.BroadcastReceiver
 import android.app.PendingIntent
 import android.content.Context
+import com.kanavdawra.pawmars.Constants
 import com.kanavdawra.pawmars.DashBoardEventsUtility
 import com.kanavdawra.pawmars.EmailSender
 
@@ -29,7 +30,7 @@ class DashBoardEventSendService : Service() {
         val subID = bundle?.getInt("SubscriptionID")
         for (event in eventContacts!!) {
 
-            sendSMS(event.phoneNo, "$sms [$link]", subID!!, eventContacts.indexOf(event))
+            sendSMS(event.phoneNo, "$sms [$link&n=${event.entryPass}]", subID!!, eventContacts.indexOf(event))
         }
 
         return super.onStartCommand(intent, flags, startId)
@@ -91,6 +92,8 @@ class DashBoardEventSendService : Service() {
             val messageArray = SmsManager.getSmsManagerForSubscriptionId(subID).divideMessage(message)
             val sms = SmsManager.getSmsManagerForSubscriptionId(subID)
             sms.sendMultipartTextMessage(phoneNumber, null, messageArray, sendList, deliverList)
+
+
         }
 
     }

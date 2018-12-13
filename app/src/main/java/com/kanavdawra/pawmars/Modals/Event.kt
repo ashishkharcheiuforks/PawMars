@@ -1,7 +1,5 @@
 package com.kanavdawra.pawmars.Modals
 
-import android.graphics.Bitmap
-
 class Event {
     var eventName = "eventName"
     var placeName = "placeName"
@@ -20,5 +18,5 @@ class Event {
     var timeZone="GMT +05:30"
     var inviteesCount = 100
     var image:String=""
-
+    var tab="A"
 }

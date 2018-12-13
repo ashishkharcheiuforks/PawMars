@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
 import com.kanavdawra.pawmars.Constants.currUser
+import com.kanavdawra.pawmars.Constants.smsTaskInterFace
 import com.kanavdawra.pawmars.DashBoard.DashBoardUtility
 import com.kanavdawra.pawmars.Modals.EventContact
 import com.kanavdawra.pawmars.Utility
@@ -159,18 +160,24 @@ class PawMarsDataBase {
             val link = FirebaseDatabase.getInstance().reference.child("Events").push().ref
             push = link.key
             context.getSharedPreferences("Event_${eventName}_Details", 0).edit().putString("ID", push).apply()
-            context.getSharedPreferences("Event_${eventName}_Details", 0).edit().putString("Link", "http://www.kanavdawra.com/PawMars/$push").apply()
+            context.getSharedPreferences("Event_${eventName}_Details", 0).edit().putString("Link", "http://www.kanavdawra.com/?id=$push").apply()
+            val message = ArrayList<String>()
+            message.add("http://www.kanavdawra.com/?id=$push&n=1")
+            //6smsTaskInterFace!!.string(message)
         }
 
         fun uploadToFireBase(eventContacts: ArrayList<EventContact>, contacts: DatabaseReference) {
+            var i = 0
             for (eventContact in eventContacts) {
-                fireBaseQuery(eventContact, contacts)
+                fireBaseQuery(eventContact, contacts, i)
+                i++
             }
         }
 
         fun uploadDetails() {
             val shPref = context.getSharedPreferences("Event_$eventName", 0)
             val EventName = shPref.getString("EventName", "")
+            val Name = shPref.getString("Name", "")
             val PlaceName = shPref.getString("PlaceName", "")
             val AddressLine1 = shPref.getString("AddressLine1", "")
             val AddressLine2 = shPref.getString("AddressLine2", "")
@@ -188,6 +195,7 @@ class PawMarsDataBase {
             val TimeZone = shPref.getString("TimeZone", "GMT 05:30")
             val Details = FirebaseDatabase.getInstance().reference.child("Events").child(push).child("EventDetails").ref
             Details.child("EventName").setValue(EventName)
+            Details.child("Name").setValue(Name)
             Details.child("PlaceName").setValue(PlaceName)
             Details.child("AddressLine1").setValue(AddressLine1)
             Details.child("AddressLine2").setValue(AddressLine2)
@@ -287,11 +295,11 @@ class PawMarsDataBase {
             })
         }
 
-        fun fireBaseQuery(eventContact: EventContact, contacts: DatabaseReference) {
-            val contacts = contacts.push().ref
-            contacts.child("Name").setValue(eventContact.name)
-            contacts.child("PhoneNumber").setValue(eventContact.phoneNo)
-            contacts.child("EmailAddress").setValue(eventContact.emailId)
+        fun fireBaseQuery(eventContact: EventContact, contacts: DatabaseReference, i: Int) {
+            val contact = contacts.child(i.toString()).push().ref
+            contact.child("Name").setValue(eventContact.name)
+            contact.child("PhoneNumber").setValue(eventContact.phoneNo)
+            contact.child("EmailAddress").setValue(eventContact.emailId)
         }
 
         fun checkCountryCode(): ArrayList<EventContact> {
@@ -302,7 +310,7 @@ class PawMarsDataBase {
                 val eventContact = EventContact()
                 val cursor = DataBase(context).readableDatabase.rawQuery("SELECT * FROM contacts WHERE contact_id='${shPref.getString("data$i", "")}'", null)
                 cursor.moveToFirst()
-
+                println(cursor.count)
                 eventContact.name = cursor.getString(cursor.getColumnIndex("name"))
                 eventContact.phoneNo = cursor.getString(cursor.getColumnIndex("phno"))
                 eventContact.emailId = cursor.getString(cursor.getColumnIndex("email"))

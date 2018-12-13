@@ -6,6 +6,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.storage.FirebaseStorage
 import com.kanavdawra.pawmars.BroadCastReceiver.EventViewPagerReceiver
 import com.kanavdawra.pawmars.BroadCastReceiver.SendReceiptReceiver
+import com.kanavdawra.pawmars.InterFace.TaskInterFace
 import com.kanavdawra.pawmars.Modals.Contact
 
 
@@ -30,6 +31,7 @@ object Constants {
     var eventName = ""
     var eventViewPagerReceiver: EventViewPagerReceiver? = null
     var sendReceiptReceiver: SendReceiptReceiver?=null
+    var smsTaskInterFace: TaskInterFace?=null
     fun currUser(): FirebaseUser {
         return firebaseAuth.currentUser!!
     }

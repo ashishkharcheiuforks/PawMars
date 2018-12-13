@@ -35,8 +35,7 @@ class DashBaordEventEmailTextFragment : Fragment() {
     }
 
     fun setData() {
-        val Shpref = activity!!.getSharedPreferences("Event_${Constants.eventName}_Details", 0)
-        DashBoard_Event_Email_Text_EditText.setText(Shpref.getString("Link", "Link"))
+
     }
 
     fun setAdaptor() {
@@ -63,7 +62,7 @@ class DashBaordEventEmailTextFragment : Fragment() {
 
     fun clickListners() {
         DashBoard_Event_Email_Text_Back.setOnClickListener {
-            DashBoardEventsUtility(activity!!).pagerPositionChange(2)
+            DashBoardEventsUtility(activity!!).pagerPositionChange(1)
         }
         DashBoard_Event_Email_Text_Next.setOnClickListener {
             if (names.count() == 0) {
@@ -73,10 +72,11 @@ class DashBaordEventEmailTextFragment : Fragment() {
                         .setPositiveButton("Set") { dialogInterface, i ->
                             PopUpFragmnent(activity!!).dismiss("EventViewPager")
                             activity!!.sendBroadcast(Intent("Navigation").putExtra("task", "navigation").putExtra("navigation", "contacts"))
-
+                            activity!!.getSharedPreferences("Event_${Constants.eventName}_Details", 0).edit().putInt("Next", 5).apply()
                         }.setNegativeButton("Skip") { dialogInterface, i ->
                             dialogInterface.dismiss()
-                            DashBoardEventsUtility(activity!!).pagerPositionChange(5)
+                            activity!!.getSharedPreferences("Event_${Constants.eventName}_Details", 0).edit().putInt("Next", 5).apply()
+                            DashBoardEventsUtility(activity!!).pagerPositionChange(activity!!.getSharedPreferences("Event_${Constants.eventName}_Details", 0).getInt("Next", 5))
 
                         }.show()
             } else {

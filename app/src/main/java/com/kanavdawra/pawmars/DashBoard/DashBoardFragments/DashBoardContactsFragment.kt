@@ -59,6 +59,14 @@ class DashBoardContactsFragment : Fragment() {
     fun toolBarButtons() {
 
         val toolBarButtonsInterFace = object : ToolBarButtonsInterFace {
+            override fun flash() {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun selectEvent() {}
+
+            override fun inviteesList() {}
+
             override fun add() {
                 selectedContacts = contactsAdapter!!.selectedContacts()
                 contactsAdapter!!.selectionCount = 0

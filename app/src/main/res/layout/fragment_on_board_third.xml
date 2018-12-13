@@ -2,12 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF32322F"
     tools:context=".AppStart.OnBoardFragments.OnBoardThirdFragment">
 
-    <TextView
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="third" />
+        android:src="@mipmap/onboard_3"/>
     <View
         android:id="@+id/OnBoardThirdFragmentGestureView"
         android:layout_width="match_parent"

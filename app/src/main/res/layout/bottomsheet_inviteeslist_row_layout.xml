@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
+
+    <me.grantland.widget.AutofitTextView
+        android:id="@+id/BottomSheet_InviteesList_Name"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:maxLines="1"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Marrige"
+        android:textColor="@color/Black"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:layout_toEndOf="@id/BottomSheet_InviteesList_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/BottomSheet_InviteesList_V1"
+            android:layout_width="0dp"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content" />
+
+        <me.grantland.widget.AutofitTextView
+            android:id="@+id/BottomSheet_InviteesList_In"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/BottomSheet_InviteesList_V1"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:text="04:44"
+            android:textColor="@color/Blue"
+            android:textSize="20sp" />
+
+        <me.grantland.widget.AutofitTextView
+            android:id="@+id/BottomSheet_InviteesList_Out"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/BottomSheet_InviteesList_V1"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:text="04:44"
+            android:textColor="@color/Green"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

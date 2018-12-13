@@ -84,6 +84,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/event_layout_date_time_Modal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="115dp"

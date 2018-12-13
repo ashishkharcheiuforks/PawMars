@@ -4,4 +4,5 @@ interface DashBoardToolBarInterface {
     fun clean()
     fun contacts()
     fun addCancel()
+    fun verify()
 }

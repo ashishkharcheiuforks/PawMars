@@ -10,6 +10,8 @@ import com.kanavdawra.pawmars.Modals.*
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileNotFoundException
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class Modal(val context: Context) {
@@ -113,11 +115,23 @@ class Modal(val context: Context) {
     fun eventstoModal(): ArrayList<Event> {
         val events = ArrayList<Event>()
         val eventsCursor = DataBase(context).readableDatabase.rawQuery("SELECT * FROM eventList", null)
+        val s = SimpleDateFormat("ddMMyyyyhhmmss")
+        val format = s.format(Date())
+        var dd = ""
+        dd = dd + format[0] + format[1]
+        var mm = ""
+        mm = mm + format[2] + format[3]
+        var yyyy = ""
+        yyyy = yyyy + format[4] + format[5] + format[6] + format[7]
+        val D = dd.toInt()
+        val M = mm.toInt()
+        val Y = yyyy.toInt()
         while (eventsCursor.moveToNext()) {
 
 
             val eventName = eventsCursor.getString(eventsCursor.getColumnIndex("name"))
             val eventPref = context.getSharedPreferences("Event_$eventName", 0)
+            val eventPref_details = context.getSharedPreferences("Event_${eventName}_Details", 0)
             val event = Event()
 
 
@@ -138,6 +152,20 @@ class Modal(val context: Context) {
             event.am_pm = eventPref.getString("AM_PM", "AM")
             event.timeZone = eventPref.getString("TimeZone", "GMT +05:30")
 
+
+            if (Y > event.year) {
+                event.tab = "H"
+            } else if (M > event.month && Y == event.year) {
+                event.tab = "H"
+            } else if (D > event.date && M == event.month && Y == event.year) {
+                event.tab = "H"
+            } else if (D == event.date && M == event.month && Y == event.year) {
+                event.tab = "H"
+            } else if (eventPref_details.getString("Tab", "I") == "U") {
+                event.tab = "U"
+            } else if (eventPref_details.getString("Tab", "I") == "I") {
+                event.tab = "I"
+            }
 
             val lenght = eventPref.all.size - 20
 
@@ -196,6 +224,7 @@ class Modal(val context: Context) {
         }
         return eventContacts
     }
+
     fun parcelableEventContactstoMoadal(eventName: String): ArrayList<ParcelableEventContact> {
         val shPref = context.getSharedPreferences("Event_$eventName", 0)
         val eventContacts = ArrayList<ParcelableEventContact>()
@@ -205,8 +234,8 @@ class Modal(val context: Context) {
                 val contactsCursor = DataBase(context).writableDatabase.rawQuery("SELECT * FROM contacts WHERE contact_id='${shPref.getString("data$i", "")}'", null)
                 contactsCursor.moveToFirst()
                 eventContact.ParcelableEventContact(contactsCursor.getString(contactsCursor.getColumnIndex("name"))
-                        ,contactsCursor.getString(contactsCursor.getColumnIndex("phno"))
-                        ,contactsCursor.getString(contactsCursor.getColumnIndex("email")),0,0)
+                        , contactsCursor.getString(contactsCursor.getColumnIndex("phno"))
+                        , contactsCursor.getString(contactsCursor.getColumnIndex("email")), 0, 0)
                 eventContacts.add(eventContact)
                 contactsCursor.close()
             }

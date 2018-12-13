@@ -17,14 +17,22 @@ import kotlinx.android.synthetic.main.fragment_dash_board_event_sms_text.*
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.IBinder
+import android.provider.Settings
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.telephony.SubscriptionInfo
 import android.text.Editable
 import android.text.TextWatcher
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.kanavdawra.pawmars.BroadCastReceiver.SendReceiptReceiver
+import com.kanavdawra.pawmars.Constants
 import com.kanavdawra.pawmars.Constants.sendReceiptReceiver
+import com.kanavdawra.pawmars.Constants.smsTaskInterFace
 import com.kanavdawra.pawmars.InterFace.EventSendInterface
+import com.kanavdawra.pawmars.InterFace.TaskInterFace
 import com.kanavdawra.pawmars.Modals.ParcelableEventContact
 import com.kanavdawra.pawmars.Service.DashBoardEventSendService
 import com.karumi.dexter.Dexter
@@ -35,6 +43,7 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import github.nisrulz.easydeviceinfo.base.EasySimMod
 import kotlinx.android.synthetic.main.select_sim.*
+import java.security.Permission
 
 
 class DashBoardEventSmSTextFragment : Fragment(), ServiceConnection {
@@ -105,6 +114,7 @@ class DashBoardEventSmSTextFragment : Fragment(), ServiceConnection {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        firstLinkSet()
         setData()
         setAdaptor()
         eventSendInterface()
@@ -133,17 +143,91 @@ class DashBoardEventSmSTextFragment : Fragment(), ServiceConnection {
 
     @SuppressLint("SetTextI18n")
     fun setData() {
-        DashBoard_Event_SmS_Text_EditText.setText("[${activity!!.getSharedPreferences("Event_${eventName}_Details",0).getString("Link","Link")}]")
+
     }
 
     fun sendSMS(subscriptionID: Int) {
-
         val bundle = Bundle()
-        bundle.putParcelableArrayList("EventContacts", list)
         bundle.putString("SMS", DashBoard_Event_SmS_Text_EditText.text.toString())
         bundle.putString("Link", activity!!.getSharedPreferences("Event_${eventName}_Details", 0).getString("Link", "Link"))
         bundle.putInt("SubscriptionID", subscriptionID)
-        activity!!.startService(Intent(activity!!, DashBoardEventSendService::class.java).putExtra("EventContacts", bundle))
+        FirebaseDatabase.getInstance().reference.child("Events")
+                .child(activity!!.getSharedPreferences("Event_${eventName}_Details", 0).getString("ID", ""))
+                .child("Contacts").addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError?) {}
+
+                    override fun onDataChange(dataSnapshot: DataSnapshot?) {
+                        for (data in dataSnapshot!!.children) {
+                            for (child in data.children) {
+                                for (i in 0 until list!!.count()) {
+                                    if (list!![i].name == child.child("Name").value) {
+                                        list!![i].entryPass = data.key
+                                    }
+                                }
+                            }
+
+                        }
+                        bundle.putParcelableArrayList("EventContacts", list)
+                        smspermissions(bundle)
+                    }
+                })
+
+    }
+
+    fun smspermissions(bundle:Bundle) {
+        if (ContextCompat.checkSelfPermission(activity!!, android.Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            createPermissionDialog(bundle)
+        } else if (ContextCompat.checkSelfPermission(activity!!, android.Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+            activity!!.startService(Intent(activity!!, DashBoardEventSendService::class.java).putExtra("EventContacts", bundle))
+            activity!!.getSharedPreferences("Event_${Constants.eventName}_Details", 0).edit().putInt("Next", 4).apply()
+            DashBoardEventsUtility(activity!!).pagerPositionChange(activity!!.getSharedPreferences("Event_${Constants.eventName}_Details", 0).getInt("Next", 4))
+        }
+
+    }
+
+    fun createPermissionDialog(bundle: Bundle) {
+        Dexter.withActivity(activity!!).withPermission(android.Manifest.permission.SEND_SMS).withListener(object :PermissionListener{
+            override fun onPermissionGranted(response: PermissionGrantedResponse?) {
+                activity!!.startService(Intent(activity!!, DashBoardEventSendService::class.java).putExtra("EventContacts", bundle))
+
+                activity!!.getSharedPreferences("Event_${Constants.eventName}_Details", 0).edit().putInt("Next", 4).apply()
+                DashBoardEventsUtility(activity!!).pagerPositionChange(activity!!.getSharedPreferences("Event_${Constants.eventName}_Details", 0).getInt("Next", 4))
+            }
+
+            override fun onPermissionRationaleShouldBeShown(permission: PermissionRequest?, token: PermissionToken?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onPermissionDenied(response: PermissionDeniedResponse?) {
+               AlertDialog.Builder(activity!!).setTitle("SMS Permissions").setMessage("To continue please give SMS permissions")
+                       .setNegativeButton("cancel", DialogInterface.OnClickListener { dialogInterface, i ->
+                   dialogInterface.dismiss() })
+                       .setPositiveButton("OK", DialogInterface.OnClickListener { dialogInterface, i ->
+                           startActivityForResult(Intent(Settings.ACTION_SETTINGS), 0)
+                           dialogInterface.dismiss()
+                       }).show()
+            }
+
+        }).check()
+        if (ContextCompat.checkSelfPermission(activity!!, android.Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            AlertDialog.Builder(activity!!).setTitle("SMS Permissions").setMessage("To continue please give SMS permissions")
+                    .setNegativeButton("cancel", DialogInterface.OnClickListener { dialogInterface, i ->
+                        dialogInterface.dismiss() })
+                    .setPositiveButton("OK", DialogInterface.OnClickListener { dialogInterface, i ->
+                        startActivityForResult(Intent(Settings.ACTION_SETTINGS), 0)
+                        dialogInterface.dismiss()
+                    }).show()
+        }
+
+    }
+
+    fun firstLinkSet() {
+        smsTaskInterFace = object : TaskInterFace {
+            override fun string(message: ArrayList<String>) {
+                DashBoard_Event_SmS_Text_EditText.setText(message[0])
+            }
+
+        }
     }
 
     fun clickListners() {
@@ -151,7 +235,7 @@ class DashBoardEventSmSTextFragment : Fragment(), ServiceConnection {
             DashBoardEventsUtility(activity!!).pagerPositionChange(1)
         }
         DashBoard_Event_SmS_Text_Next.setOnClickListener {
-            if (DashBoard_Event_SmS_Text_EditText.text.length > 104) {
+            if (DashBoard_Event_SmS_Text_EditText.text.length > 103) {
                 DashBoard_Event_SmS_Text_EditText_Layout.error = "Max Char limit exceeded."
             } else {
                 AlertDialog.Builder(activity!!).setMessage("Are you okay by sending ${list!!.count()} SMS's in Background.")
@@ -159,9 +243,9 @@ class DashBoardEventSmSTextFragment : Fragment(), ServiceConnection {
                         .setIcon(R.mipmap.sms)
                         .setPositiveButton("YES") { dialogInterface, i ->
                             setSimData()
-
                         }.setNegativeButton("No") { dialogInterface, i ->
-                            DashBoardEventsUtility(activity!!).pagerPositionChange(4)
+                            activity!!.getSharedPreferences("Event_${eventName}_Details", 0).edit().putInt("Next", 4).apply()
+                            DashBoardEventsUtility(activity!!).pagerPositionChange(activity!!.getSharedPreferences("Event_${eventName}_Details", 0).getInt("Next", 4))
 
                         }.show()
             }
@@ -169,10 +253,9 @@ class DashBoardEventSmSTextFragment : Fragment(), ServiceConnection {
         }
         DashBoard_Event_SmS_Text_EditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if (s!!.length > 104) {
+                if (s!!.length > 103) {
                     DashBoard_Event_SmS_Text_EditText_Layout.error = "Max Char limit exceeded."
-                }
-                else{
+                } else {
                     DashBoard_Event_SmS_Text_EditText_Layout.error = ""
                 }
             }
